@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8</TargetFramework>
+    <ImplicitUsings>false</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Izayoi.Data</RootNamespace>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Authors>Izayoi</Authors>
+    <Description>This is a database operation support library that includes a fast micro O/R mapper (ORM).</Description>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>database;dbcommand;sql;orm;</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter</RepositoryUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Izayoi.Data.DbCommandAdapter</Title>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Izayoi.Data.DbDataMapper\Izayoi.Data.DbDataMapper.csproj" />
+    <ProjectReference Include="..\Izayoi.Data.Query\Izayoi.Data.Query.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include=".\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include=".\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

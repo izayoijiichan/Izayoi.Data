@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8</TargetFramework>
+    <ImplicitUsings>false</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Izayoi.Data.Query</RootNamespace>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Authors>Izayoi</Authors>
+    <Description>This is a library that supports building query (SQL) to manipulate a database.</Description>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>database;query;query-builder;sql;sql-builder</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter</RepositoryUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Izayoi.Data.Query</Title>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include=".\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include=".\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
