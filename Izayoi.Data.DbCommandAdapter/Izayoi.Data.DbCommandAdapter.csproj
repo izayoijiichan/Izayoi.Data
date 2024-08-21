@@ -5,7 +5,7 @@
     <ImplicitUsings>false</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>Izayoi.Data</RootNamespace>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
     <Authors>Izayoi</Authors>
     <Description>This is a database operation support library that includes a fast micro O/R mapper (ORM).</Description>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
@@ -13,8 +13,9 @@
     <PackageTags>database;dbcommand;sql;orm;</PackageTags>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter</RepositoryUrl>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Title>Izayoi.Data.DbCommandAdapter</Title>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -13,7 +13,7 @@
     <PackageTags>database;query;query-builder;sql;sql-builder</PackageTags>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter</RepositoryUrl>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Title>Izayoi.Data.Query</Title>
   </PropertyGroup>
 

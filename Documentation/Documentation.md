@@ -9,6 +9,7 @@
 |Izayoi.Data.DbCommandAdapter.dll|
 |Izayoi.Data.DbDataMapper.dll|
 |Izayoi.Data.Query.dll|
+|Izayoi.Data.Repository.dll|
 
 ## Namespaces
 
@@ -16,6 +17,7 @@
 |--|
 |Izayoi.Data|
 |Izayoi.Data.Query|
+|Izayoi.Data.Repository|
 
 ## Classes
 
@@ -39,6 +41,12 @@
 |[Insert](API/Query/Dml/Insert.md)|DML|An insert source.|
 |[Update](API/Query/Dml/Update.md)|DML|An update source.|
 |[Delete](API/Query/Dml/Delete.md)|DML|A delete source.|
+
+### Izayoi.Data.Repository
+
+|Class|Cateogory|Remarks|
+|--|--|--|
+|[DbRepositoryBase](API/Repository/DbRepositoryBase.md)|Repository|A DB repository base.|
 
 ## Available Databases
 

@@ -114,6 +114,7 @@ public class PostCount
 ~~~csharp
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Izayoi.Data;
 using Izayoi.Data.Query;
@@ -433,7 +434,7 @@ public class PostRepository
 A `DbCommandAdapter` object can be reused. (Recommend)
 
 ___
-Last updated: 16 August, 2024  
+Last updated: 22 August, 2024  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2024 Izayoi Jiichan. All Rights Reserved.*

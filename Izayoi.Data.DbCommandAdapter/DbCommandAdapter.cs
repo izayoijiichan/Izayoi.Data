@@ -23,7 +23,7 @@ namespace Izayoi.Data
         #region Fields
 
         /// <summary>A DB data mapper.</summary>
-        protected readonly DbDataMapper _dbDataMapper;
+        protected readonly IDbDataMapper _dbDataMapper;
 
         /// <summary>A query option.</summary>
         protected readonly QueryOption _queryOption;
@@ -38,7 +38,7 @@ namespace Izayoi.Data
         /// Initializes a new instance of the DbCommandAdapter class with the specified dbDataMapper.
         /// </summary>
         /// <param name="dbDataMapper">A DB data mapper.</param>
-        public DbCommandAdapter(DbDataMapper dbDataMapper)
+        public DbCommandAdapter(IDbDataMapper dbDataMapper)
         {
             _dbDataMapper = dbDataMapper;
 
@@ -50,7 +50,7 @@ namespace Izayoi.Data
         /// </summary>
         /// <param name="dbDataMapper">A DB data mapper.</param>
         /// <param name="queryOption">A query option.</param>
-        public DbCommandAdapter(DbDataMapper dbDataMapper, QueryOption queryOption)
+        public DbCommandAdapter(IDbDataMapper dbDataMapper, QueryOption queryOption)
         {
             _dbDataMapper = dbDataMapper;
 
@@ -61,8 +61,8 @@ namespace Izayoi.Data
 
         #region Properties
 
-        ///// <summary>Gets the DB data mapper.</summary>
-        //public virtual DbDataMapper DataMapper => _dbDataMapper;
+        /// <summary>Gets the DB data mapper.</summary>
+        public virtual IDbDataMapper DbDataMapper => _dbDataMapper;
 
         /// <summary>Gets the query option.</summary>
         public virtual QueryOption QueryOption =>  _queryOption;
@@ -76,7 +76,7 @@ namespace Izayoi.Data
         /// </summary>
         /// <param name="dbCommand">A DB command.</param>
         /// <param name="bindParameters">Bind parameter collection.</param>
-        protected virtual void AddBindParameters(DbCommand dbCommand, BindParameterCollection bindParameters)
+        protected virtual void AddBindParameters(DbCommand dbCommand, IBindParameterCollection bindParameters)
         {
             //dbCommand.Parameters.Clear();
 

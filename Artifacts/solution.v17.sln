@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Izayoi.Data.Query", "..\Iza
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Izayoi.Data.Query.Test", "..\Izayoi.Data.Query.Test\Izayoi.Data.Query.Test.csproj", "{9C274E82-32E3-48FA-8910-E4D99B8CAB2F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Izayoi.Data.Repository", "..\Izayoi.Data.Repository\Izayoi.Data.Repository.csproj", "{73C373E1-7303-4FA6-816C-4DBC1FF2984E}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Izayoi.Data.Test", "..\Izayoi.Data.Test\Izayoi.Data.Test.csproj", "{B691D20B-31BB-404D-A016-41A07D4CE3EB}"
 EndProject
 Global
@@ -35,6 +37,10 @@ Global
 		{9C274E82-32E3-48FA-8910-E4D99B8CAB2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C274E82-32E3-48FA-8910-E4D99B8CAB2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C274E82-32E3-48FA-8910-E4D99B8CAB2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73C373E1-7303-4FA6-816C-4DBC1FF2984E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73C373E1-7303-4FA6-816C-4DBC1FF2984E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73C373E1-7303-4FA6-816C-4DBC1FF2984E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73C373E1-7303-4FA6-816C-4DBC1FF2984E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B691D20B-31BB-404D-A016-41A07D4CE3EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B691D20B-31BB-404D-A016-41A07D4CE3EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B691D20B-31BB-404D-A016-41A07D4CE3EB}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -20,8 +20,8 @@ namespace Izayoi.Data
     {
         #region Properties
 
-        ///// <summary>Gets the DB data mapper.</summary>
-        //DbDataMapper DataMapper { get; }
+        /// <summary>Gets the DB data mapper.</summary>
+        IDbDataMapper DbDataMapper { get; }
 
         /// <summary>Gets the query option.</summary>
         QueryOption QueryOption { get; }

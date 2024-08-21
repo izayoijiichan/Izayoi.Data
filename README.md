@@ -2,13 +2,18 @@
 
 This is a database operation support library that includes a fast micro O/R mapper (ORM).
 
+![.net](https://img.shields.io/badge/.NET-8-2196F3.svg?logo=.net&style=flat)
+![license](https://img.shields.io/github/license/izayoijiichan/Izayoi.Data.DbCommandAdapter)
+[![wiki](https://img.shields.io/badge/GitHub-wiki-181717.svg?logo=github&style=flat)](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter/wiki)
+
 ## Feature
 
-It has three functions.
+It has four functions.
 
 1. `DbDataMapper`: This is a micro O/R mapper.
 2. `QueryBuilder`: This helps construct the query and parameters.
 3. `DbCommandAdapter`: The above two functions are combined to support command execution.
+4. `DbRepositoryBase`: It provides basic CRUD operations on table.
 
 ## Documentation
 
@@ -36,6 +41,7 @@ A Database with a package that implements classes that inherit from the `DbComma
 |Izayoi.Data.DbCommandAdapter|[Izayoi.Data.DbCommandAdapter](https://www.nuget.org/packages/Izayoi.Data.DbCommandAdapter)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter)|
 |Izayoi.Data.DbDataMapper|[Izayoi.Data.DbDataMapper](https://www.nuget.org/packages/Izayoi.Data.DbDataMapper)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter)|
 |Izayoi.Data.Query|[Izayoi.Data.Query](https://www.nuget.org/packages/Izayoi.Data.Query)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter)|
+|Izayoi.Data.Repository|[Izayoi.Data.Repository](https://www.nuget.org/packages/Izayoi.Data.Repository)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter)|
 
 ## Examples
 
@@ -148,6 +154,7 @@ public class UserRepository
 
 ~~~csharp
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Izayoi.Data;
 using Izayoi.Data.Query;
@@ -349,8 +356,12 @@ public class PostRepository
 
 See [QueryBuilder](Documentation/API/Query/Builders/QueryBuilder.md).
 
+### DbRepository
+
+See [DbRepositoryBase](Documentation/API/Repository/DbRepositoryBase.md).
+
 ___
-Last updated: 16 August, 2024  
+Last updated: 22 August, 2024  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2024 Izayoi Jiichan. All Rights Reserved.*

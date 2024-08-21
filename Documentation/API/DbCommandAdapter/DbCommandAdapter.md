@@ -22,12 +22,16 @@ Object -> DbCommandAdapter
 
 |Name|Summary|
 |--|--|
-|DbCommandAdapter(DbDataMapper dbDataMapper)|Initializes a new instance of the DbCommandAdapter class with the specified dbDataMapper.|
-|DbCommandAdapter(DbDataMapper dbDataMapper, QueryOption queryOption)|Initializes a new instance of the DbCommandAdapter class with the specified dbDataMapper and queryOption.|
+|DbCommandAdapter(IDbDataMapper dbDataMapper)|Initializes a new instance of the DbCommandAdapter class with the specified dbDataMapper.|
+|DbCommandAdapter(IDbDataMapper dbDataMapper, QueryOption queryOption)|Initializes a new instance of the DbCommandAdapter class with the specified dbDataMapper and queryOption.|
 
 ## Properties
 
-#### `QueryOption` [QueryOption](QueryOption.md)
+#### `DbDataMapper` [IDbDataMapper](../DbDataMapper/DbDataMapper.md)
+
+Gets the DB data mapper.
+
+#### `QueryOption` [QueryOption](../Query/QueryOption.md)
 
 Gets the query option.
 
