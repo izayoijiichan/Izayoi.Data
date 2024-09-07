@@ -6,7 +6,7 @@ This is a database operation repository infrastructure with CRUD functionality.
 
 A Database with a package that implements classes that inherit from the `DbCommand` and `DbDataReader` classes.
 
-|Database|Nuget|GitHub|Project|
+|Database|NuGet|GitHub|Project|
 |--|--|--|--|
 |MySQL|[MySqlConnector](https://www.nuget.org/packages/MySqlConnector/)|[MySqlConnector](https://github.com/mysql-net/MySqlConnector)|[mysqlconnector.net](https://mysqlconnector.net/)|
 |PostgreSQL|[Npgsql](https://www.nuget.org/packages/Npgsql/)|[Npgsql](https://github.com/npgsql/npgsql)|[Npgsql](https://www.npgsql.org/)|
@@ -78,8 +78,8 @@ public class User
 
 ~~~csharp
 using Izayoi.Data;
-using Izayoi.Data.Repository;
 using Izayoi.Data.Query;
+using Izayoi.Data.Repository;
 
 public class UserRepository : DbRepositoryBase<User, int>  // <MapClass, KeyDataType>
 {

@@ -6,7 +6,7 @@ This is a database operation support library that includes a fast micro O/R mapp
 
 A Database with a package that implements classes that inherit from the `DbCommand` and `DbDataReader` classes.
 
-|Database|Nuget|GitHub|Project|
+|Database|NuGet|GitHub|Project|
 |--|--|--|--|
 |MySQL|[MySqlConnector](https://www.nuget.org/packages/MySqlConnector/)|[MySqlConnector](https://github.com/mysql-net/MySqlConnector)|[mysqlconnector.net](https://mysqlconnector.net/)|
 |PostgreSQL|[Npgsql](https://www.nuget.org/packages/Npgsql/)|[Npgsql](https://github.com/npgsql/npgsql)|[Npgsql](https://www.npgsql.org/)|
@@ -341,7 +341,7 @@ public class UserRepository
             //   AND age <= @w_1
             // ORDER BY age ASC
         }
-        // SELECT method C (OR)
+        // SELECT method D (OR)
         {
             select
                 .AddWhere('(', "age", "=", 13)

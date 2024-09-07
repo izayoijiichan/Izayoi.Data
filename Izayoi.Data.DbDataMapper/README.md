@@ -6,7 +6,7 @@ This is a fast micro O/R mapper (ORM) that stores data retrieved from a DB into 
 
 A Database with a package that implements classes that inherit from the `DbCommand` and `DbDataReader` classes.
 
-|Database|Nuget|GitHub|Project|
+|Database|NuGet|GitHub|Project|
 |--|--|--|--|
 |MySQL|[MySqlConnector](https://www.nuget.org/packages/MySqlConnector/)|[MySqlConnector](https://github.com/mysql-net/MySqlConnector)|[mysqlconnector.net](https://mysqlconnector.net/)|
 |PostgreSQL|[Npgsql](https://www.nuget.org/packages/Npgsql/)|[Npgsql](https://github.com/npgsql/npgsql)|[Npgsql](https://www.npgsql.org/)|

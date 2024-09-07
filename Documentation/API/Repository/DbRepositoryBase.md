@@ -12,7 +12,7 @@
 Represents a DB repository base.
 
 ~~~csharp
-public class DbRepositoryBase<TData, TKey>
+public abstract class DbRepositoryBase<TData, TKey>
 ~~~
 
 ### Type Parameters
@@ -41,7 +41,7 @@ Object -> DbRepositoryBase\<TData, TKey>
 |--|--|--|
 |GetCountAsync(DbConnection dbConnection, CancellationToken cancellationToken)|Task\<int>|Gets the count of records.|
 |FetchAsync(DbConnection dbConnection, TKey id, CancellationToken cancellationToken)|Task\<TData?>|Gets the data for the specified ID.|
-|FetchAsync(DbConnection dbConnection, IEnumerable<TKey> ids, CancellationToken cancellationToken)|Task\<List\<TData>>|Gets the data for the specified IDs.|
+|FetchAsync(DbConnection dbConnection, IEnumerable\<TKey> ids, CancellationToken cancellationToken)|Task\<List\<TData>>|Gets the data for the specified IDs.|
 |FetchAllAsync(DbConnection dbConnection, CancellationToken cancellationToken)|Task\<List\<TData>>|Gets all the data.|
 |InsertAsync(DbConnection dbConnection, TData data, CancellationToken cancellationToken)|Task\<int>|Executes an INSERT query.|
 |InsertReturnAsync(DbConnection dbConnection, TData data, CancellationToken cancellationToken)|Task\<int>|Execute the INSERT query, get the inserted identity value, and set it in the data.|
