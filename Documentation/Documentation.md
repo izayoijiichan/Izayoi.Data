@@ -10,6 +10,7 @@
 |Izayoi.Data.DbDataMapper.dll|
 |Izayoi.Data.Query.dll|
 |Izayoi.Data.Repository.dll|
+|Izayoi.Data.Validation.dll|
 
 ## Namespaces
 
@@ -18,6 +19,7 @@
 |Izayoi.Data|
 |Izayoi.Data.Query|
 |Izayoi.Data.Repository|
+|Izayoi.Data.Validation|
 
 ## Classes
 
@@ -48,11 +50,18 @@
 |--|--|--|
 |[DbRepositoryBase](API/Repository/DbRepositoryBase.md)|Repository|A DB repository base.|
 
+### Izayoi.Data.Validation
+
+|Class|Cateogory|Remarks|
+|--|--|--|
+|[DataValidator](API/Validation/DataValidator.md)|Validation|A data validator.|
+|[ValidationError](API/Validation/ValidationError.md)|Validation|A validation error.|
+
 ## Available Databases
 
 A Database with a package that implements classes that inherit from the `DbCommand` and `DbDataReader` classes.
 
-|Database|Nuget|GitHub|Project|
+|Database|NuGet|GitHub|Project|
 |--|--|--|--|
 |MySQL|[MySqlConnector](https://www.nuget.org/packages/MySqlConnector/)|[MySqlConnector](https://github.com/mysql-net/MySqlConnector)|[mysqlconnector.net](https://mysqlconnector.net/)|
 |PostgreSQL|[Npgsql](https://www.nuget.org/packages/Npgsql/)|[Npgsql](https://github.com/npgsql/npgsql)|[Npgsql](https://www.npgsql.org/)|

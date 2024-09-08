@@ -8,12 +8,13 @@ This is a database operation support library that includes a fast micro O/R mapp
 
 ## Feature
 
-It has four functions.
+It has five functions.
 
 1. `DbDataMapper`: This is a micro O/R mapper.
 2. `QueryBuilder`: This helps construct the query and parameters.
 3. `DbCommandAdapter`: The above two functions are combined to support command execution.
 4. `DbRepositoryBase`: It provides basic CRUD operations on table.
+5. `DataValidator`: It provides fast model validation.
 
 ## Documentation
 
@@ -27,7 +28,7 @@ It has four functions.
 
 A Database with a package that implements classes that inherit from the `DbCommand` and `DbDataReader` classes.
 
-|Database|Nuget|GitHub|Project|
+|Database|NuGet|GitHub|Project|
 |--|--|--|--|
 |MySQL|[MySqlConnector](https://www.nuget.org/packages/MySqlConnector/)|[MySqlConnector](https://github.com/mysql-net/MySqlConnector)|[mysqlconnector.net](https://mysqlconnector.net/)|
 |PostgreSQL|[Npgsql](https://www.nuget.org/packages/Npgsql/)|[Npgsql](https://github.com/npgsql/npgsql)|[Npgsql](https://www.npgsql.org/)|
@@ -36,12 +37,13 @@ A Database with a package that implements classes that inherit from the `DbComma
 
 ## Installation
 
-|Package Name|Nuget|GitHub|
+|Package Name|NuGet|GitHub|
 |--|--|--|
 |Izayoi.Data.DbCommandAdapter|[Izayoi.Data.DbCommandAdapter](https://www.nuget.org/packages/Izayoi.Data.DbCommandAdapter)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter)|
 |Izayoi.Data.DbDataMapper|[Izayoi.Data.DbDataMapper](https://www.nuget.org/packages/Izayoi.Data.DbDataMapper)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter)|
 |Izayoi.Data.Query|[Izayoi.Data.Query](https://www.nuget.org/packages/Izayoi.Data.Query)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter)|
 |Izayoi.Data.Repository|[Izayoi.Data.Repository](https://www.nuget.org/packages/Izayoi.Data.Repository)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter)|
+|Izayoi.Data.Validation|[Izayoi.Data.Validation](https://www.nuget.org/packages/Izayoi.Data.Validation)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter)|
 
 ## Examples
 
@@ -360,8 +362,12 @@ See [QueryBuilder](Documentation/API/Query/Builders/QueryBuilder.md).
 
 See [DbRepositoryBase](Documentation/API/Repository/DbRepositoryBase.md).
 
+### DataValidator
+
+See [DataValidator](Documentation/API/Validation/DataValidator.md).
+
 ___
-Last updated: 22 August, 2024  
+Last updated: 9 September, 2024  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2024 Izayoi Jiichan. All Rights Reserved.*
