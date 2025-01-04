@@ -51,3 +51,9 @@ The dafault is `true`;
 Gets or sets whether inherit `[NotMapped]` attribute.
 
 The dafault is `true`;
+
+## Applies to
+
+|Product|Versions|
+|--|--|
+|.NET|8, 9|

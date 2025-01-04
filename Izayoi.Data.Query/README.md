@@ -2,6 +2,12 @@
 
 This is a library that supports building query (SQL) to manipulate a database.
 
+## Applies to
+
+|Product|Versions|
+|--|--|
+|.NET|8, 9|
+
 ## Wiki
 
 [Wiki](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter/wiki)
@@ -656,7 +662,7 @@ static void Main()
 ~~~
 
 ___
-Last updated: 16 August, 2024  
+Last updated: 5 January, 2025  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2024 Izayoi Jiichan. All Rights Reserved.*

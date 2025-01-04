@@ -13,6 +13,12 @@ A Database with a package that implements classes that inherit from the `DbComma
 |SQL Server|[Microsoft.Data.Sqlclient](https://www.nuget.org/packages/Microsoft.Data.Sqlclient/)|-|-|
 |SQLite|[Microsoft.Data.Sqlite](https://www.nuget.org/packages/Microsoft.Data.Sqlite)|-|-|
 
+## Applies to
+
+|Product|Versions|
+|--|--|
+|.NET|8, 9|
+
 ## Wiki
 
 [Wiki](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter/wiki)
@@ -134,7 +140,7 @@ Reuse a `DbDataMapper` object whenever possible.
 This library really shines when used in conjunction with the `Izayoi.Data.DbCommandAdapter`.
 
 ___
-Last updated: 16 August, 2024  
+Last updated: 5 January, 2025  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2024 Izayoi Jiichan. All Rights Reserved.*

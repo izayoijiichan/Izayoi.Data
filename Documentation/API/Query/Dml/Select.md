@@ -166,3 +166,9 @@ Use only in SQL Server.
 |SetFor(Json json)|Select|
 |SetFor(JsonMode mode, string? rootName = null, bool includeNullValues = false, bool withoutArrayWrapper = false)|Select|
 |ClearFor()|Select|
+
+## Applies to
+
+|Product|Versions|
+|--|--|
+|.NET|8, 9|

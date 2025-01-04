@@ -64,3 +64,9 @@ It cannot be used when using the VALUES clause.
 |AddValue(string columnName, object? value, DbType dbType)|Insert|
 |AddValue(string columnName, object? value, bool isExpression)|Insert|
 |ClearValues()|Insert|
+
+## Applies to
+
+|Product|Versions|
+|--|--|
+|.NET|8, 9|

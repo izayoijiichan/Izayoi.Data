@@ -74,3 +74,9 @@ WHERE clause
 |AddWhere(CType connector, char enclosureL, string fieldName, OpType operate, object? value, bool isExpression, char? enclosureR = null)|Delete|
 |AddWhere(CType connector, char enclosureL, string fieldName, OpType operate, object? value, DbType? dbType, bool isExpression, char? enclosureR)|Delete|
 |ClearWhere()|Delete|
+
+## Applies to
+
+|Product|Versions|
+|--|--|
+|.NET|8, 9|

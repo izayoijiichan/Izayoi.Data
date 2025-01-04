@@ -209,4 +209,4 @@ public class Example
 
 |Product|Versions|
 |--|--|
-|.NET|8|
+|.NET|8, 9|

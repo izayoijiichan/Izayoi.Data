@@ -102,3 +102,9 @@ static void Main()
     }
 }
 ~~~
+
+## Applies to
+
+|Product|Versions|
+|--|--|
+|.NET|8, 9|

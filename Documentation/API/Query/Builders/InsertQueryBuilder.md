@@ -49,3 +49,9 @@ Gets the bind parameters.
 |Clean()|bool|Clear the query and parameters.|
 |GetQuery()|string|Get the query.|
 |GetParameters()|BindParameterCollection|Get the parameters.|
+
+## Applies to
+
+|Product|Versions|
+|--|--|
+|.NET|8, 9|

@@ -175,4 +175,4 @@ A Database with a package that implements classes that inherit from the `DbComma
 
 |Product|Versions|
 |--|--|
-|.NET|8|
+|.NET|8, 9|

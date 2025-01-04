@@ -18,7 +18,7 @@ This is a fast validator.
 
 |Product|Versions|
 |--|--|
-|.NET|8|
+|.NET|8, 9|
 |.NET Standard|2.0, 2.1|
 
 ## Examples
@@ -90,7 +90,7 @@ For more information, see the Documentation or Wiki.
 [Wiki](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter/wiki)
 
 ___
-Last updated: 9 September, 2024  
+Last updated: 5 January, 2025  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2024 Izayoi Jiichan. All Rights Reserved.*

@@ -56,5 +56,5 @@ Gets list of the validation attribute that failed validation.
 
 |Product|Versions|
 |--|--|
-|.NET|8|
+|.NET|8, 9|
 |.NET Standard|2.0, 2.1|

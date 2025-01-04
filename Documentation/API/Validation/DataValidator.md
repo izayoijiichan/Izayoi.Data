@@ -186,5 +186,5 @@ public class Example()
 
 |Product|Versions|
 |--|--|
-|.NET|8|
+|.NET|8, 9|
 |.NET Standard|2.0, 2.1|
