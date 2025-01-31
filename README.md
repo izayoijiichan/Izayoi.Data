@@ -2,19 +2,23 @@
 
 This is a database operation support library that includes a fast micro O/R mapper (ORM).
 
-![.net](https://img.shields.io/badge/.NET-8-2196F3.svg?logo=.net&style=flat)
-![license](https://img.shields.io/github/license/izayoijiichan/Izayoi.Data.DbCommandAdapter)
-[![wiki](https://img.shields.io/badge/GitHub-wiki-181717.svg?logo=github&style=flat)](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter/wiki)
+![.net](https://img.shields.io/badge/.NET-8%2c9-2196F3.svg?logo=.net&style=flat)
+![license](https://img.shields.io/github/license/izayoijiichan/Izayoi.Data)
+[![wiki](https://img.shields.io/badge/GitHub-wiki-181717.svg?logo=github&style=flat)](https://github.com/izayoijiichan/Izayoi.Data/wiki)
 
 ## Feature
 
-It has five functions.
+It has 9 functions.
 
 1. `DbDataMapper`: This is a micro O/R mapper.
 2. `QueryBuilder`: This helps construct the query and parameters.
 3. `DbCommandAdapter`: The above two functions are combined to support command execution.
 4. `DbRepositoryBase`: It provides basic CRUD operations on table.
 5. `DataValidator`: It provides fast model validation.
+6. `ComparableEnum`: This is a comparable enumlation.
+7. `ComparableNullable`: This is a comparable nullable value.
+8. `ComparableStructPack`: This is a comparable structure pack.
+9. `TimestampedObject`: This is a timestamped object.
 
 ## Documentation
 
@@ -22,7 +26,7 @@ It has five functions.
 
 ## Wiki
 
-[Wiki](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter/wiki)
+[Wiki](https://github.com/izayoijiichan/Izayoi.Data/wiki)
 
 ## Available Databases
 
@@ -39,11 +43,14 @@ A Database with a package that implements classes that inherit from the `DbComma
 
 |Package Name|NuGet|GitHub|
 |--|--|--|
-|Izayoi.Data.DbCommandAdapter|[Izayoi.Data.DbCommandAdapter](https://www.nuget.org/packages/Izayoi.Data.DbCommandAdapter)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter)|
-|Izayoi.Data.DbDataMapper|[Izayoi.Data.DbDataMapper](https://www.nuget.org/packages/Izayoi.Data.DbDataMapper)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter)|
-|Izayoi.Data.Query|[Izayoi.Data.Query](https://www.nuget.org/packages/Izayoi.Data.Query)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter)|
-|Izayoi.Data.Repository|[Izayoi.Data.Repository](https://www.nuget.org/packages/Izayoi.Data.Repository)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter)|
-|Izayoi.Data.Validation|[Izayoi.Data.Validation](https://www.nuget.org/packages/Izayoi.Data.Validation)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter)|
+|Izayoi.Data.Comparable|[Izayoi.Data.Comparable](https://www.nuget.org/packages/Izayoi.Data.Comparable)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data)|
+|Izayoi.Data.DbCommandAdapter|[Izayoi.Data.DbCommandAdapter](https://www.nuget.org/packages/Izayoi.Data.DbCommandAdapter)|[Izayoi.Data](https://github.com/izayoijiichanIzayoi.Data)|
+|Izayoi.Data.DbDataMapper|[Izayoi.Data.DbDataMapper](https://www.nuget.org/packages/Izayoi.Data.DbDataMapper)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data)|
+|Izayoi.Data.Packs|[Izayoi.Data.Packs](https://www.nuget.org/packages/Izayoi.Data.Packs)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data)|
+|Izayoi.Data.Query|[Izayoi.Data.Query](https://www.nuget.org/packages/Izayoi.Data.Query)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data)|
+|Izayoi.Data.Repository|[Izayoi.Data.Repository](https://www.nuget.org/packages/Izayoi.Data.Repository)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data)|
+|Izayoi.Data.TimestampedObjects|[Izayoi.Data.TimestampedObjects](https://www.nuget.org/packages/Izayoi.Data.TimestampedObjects)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data)|
+|Izayoi.Data.Validation|[Izayoi.Data.Validation](https://www.nuget.org/packages/Izayoi.Data.Validation)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data)|
 
 ## Examples
 
@@ -75,35 +82,6 @@ public class User
 
     [Column("updated_at")]
     public DateTime UpdatedAt { get; set; }
-}
-
-[Table("posts")]
-public class Post
-{
-    [Key]
-    [Column("id")]
-    public int Id { get; set; }
-
-    [Column("user_id")]
-    public int UserId { get; set; }
-
-    [Column("comment")]
-    public string Comment { get; set; } = string.Empty;
-
-    [NotMapped]
-    public int IgnoreProperty { get; set; }
-}
-
-public class PostCount
-{
-    [Column("user_id")]
-    public int UserId { get; set; }
-
-    [Column("user_name")]
-    public string UserName { get; set; } = string.Empty;
-
-    [Column("count")]
-    public int Count { get; set; }
 }
 ~~~
 
@@ -184,7 +162,7 @@ public class UserRepository
         dbCommandAdapter = new DbCommandAdapter(dbDataMapper, queryOption);
     }
 
-    public async Task<List<User>> GetUsers(CancellationToken cancellationToken)
+    public async Task<User> AddUser(string name, byte age, GenderType gender, CancellationToken cancellationToken)
     {
         using SqlConnection dbConnection = new(dbConnectionString);
 
@@ -192,26 +170,23 @@ public class UserRepository
 
         dbConnection.Open();
 
-        // SELECT ALL
-        List<User> users = await dbCommandAdapter.SelectAllAsync<User>(dbCommand, cancellationToken);
+        var user = new User()
+        {
+            Id = 0,
+            Name = name,
+            Age = age,
+            Gender = gender,
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow,
+        };
+
+        int userId = await dbCommandAdapter.InsertReturnAsync<int, User>(dbCommand, user, excludeKey: true, cancellationToken);
 
         dbConnection.Close();
 
-        return users;
-    }
+        user.Id = userId;
 
-    public async Task<User?> GetUser(int userId, CancellationToken cancellationToken)
-    {
-        // CreateConnection -> CreateCommand -> Connection.Open
-
-        var select = new Select()
-            .SetFrom("users")
-            .AddField("*")
-            .AddWhere("id", "=", userId);
-
-        List<User> users = await dbCommandAdapter.SelectAsync<User>(dbCommand, select, cancellationToken);
-
-        return users.FirstOrDefault();
+        return user;
     }
 
     public async Task<List<User>> GetTeenAgers(CancellationToken cancellationToken)
@@ -228,146 +203,26 @@ public class UserRepository
 
         return users;
     }
-
-    public async Task<User> AddUser(string name, byte age, GenderType gender, CancellationToken cancellationToken)
-    {
-        // CreateConnection -> CreateCommand -> Connection.Open
-
-        var user = new User()
-        {
-            Id = 0,
-            Name = name,
-            Age = age,
-            Gender = gender,
-            CreatedAt = DateTime.UtcNow,
-            UpdatedAt = DateTime.UtcNow,
-        };
-
-        int userId = await dbCommandAdapter.InsertReturnAsync<int, User>(dbCommand, user, excludeKey: true, cancellationToken);
-
-        user.Id = userId;
-
-        return user;
-    }
-
-    public async Task<bool> UpdateUser(User user, CancellationToken cancellationToken)
-    {
-        // CreateConnection -> CreateCommand -> Connection.Open
-
-        user.UpdatedAt = DateTime.UtcNow;
-
-        var excludeColumns = new string[] { "created_at" };
-
-        int affectedRowCount = await dbCommandAdapter.UpdateAsync<User>(dbCommand, user, excludeColumns, cancellationToken);
-
-        return affectedRowCount == 1;
-    }
-
-    public async Task<bool> DeleteUser(User user, CancellationToken cancellationToken)
-    {
-        // CreateConnection -> CreateCommand -> Connection.Open
-
-        int affectedRowCount = await dbCommandAdapter.DeleteAsync<User>(dbCommand, user, cancellationToken);
-
-        return affectedRowCount == 1;
-    }
-
-    public async Task<int> GetCount(CancellationToken cancellationToken)
-    {
-        // CreateConnection -> CreateCommand -> Connection.Open
-
-        var select = new Select()
-            .SetFrom("users")
-            .AddField("COUNT(*)");
-
-        int? count = await dbCommandAdapter.ExecuteScalarAsync<int>(dbCommand, select, cancellationToken);
-
-        return count ?? throw new Exception();
-    }
-
-    public async Task<List<User>> GetSelectUsers(Select select, CancellationToken cancellationToken)
-    {
-        // CreateConnection -> CreateCommand -> Connection.Open
-
-        List<User> users = await dbCommandAdapter.SelectAsync<User>(dbCommand, select, cancellationToken);
-
-        return users;
-    }
-
-    public async Task<List<User>> GetQueryUsers(string query, Array parameters, CancellationToken cancellationToken)
-    {
-        // CreateConnection -> CreateCommand -> Connection.Open
-
-        dbCommand.CommandText = query;
-
-        dbCommand.Parameters.AddRange(parameters);
-
-        List<User> users = await dbCommandAdapter.ExecuteQueryAsync<User>(dbCommand, cancellationToken);
-
-        return users;
-    }
 }
 ~~~
+## Unity
 
-~~~csharp
-public class PostRepository
+`manifest.json`
+
+~~~json
 {
-    // ...
-
-    public async Task<List<PostCount>> GetUserPostCounts(CancellationToken cancellationToken)
-    {
-        // CreateConnection -> CreateCommand -> Connection.Open
-
-        var select = new Select();
-
-        select.SetFrom("posts", "p")
-            .Joins.Add(JType.LEFT_JOIN, "users", "u", "u.id = p.user_id");
-
-        select.Fields
-            .Add("u.id", "user_id")
-            .Add("u.name", "user_name")
-            .Add("COUNT(u.id)", "count");
-
-        select.Groups
-            .Add("u.id")
-            .Add("u.name");
-
-        select.Orders
-            .Add("count", OType.DESC);
-
-        // SELECT
-        //   u.id AS user_id,
-        //   u.name AS user_name,
-        //   COUNT(u.id) AS count
-        // FROM posts AS p
-        //   LEFT JOIN users AS u ON (u.id = p.user_id)
-        // GROUP BY
-        //   u.id,
-        //   u.name
-        // ORDER BY
-        //   count DESC
-
-        List<PostCount> postCounts = await dbCommandAdapter.SelectAsync<PostCount>(dbCommand, select, cancellationToken);
-
-        return postCounts;
-    }
+  "dependencies": {
+    "com.izayoi.data.comparable": "https://github.com/izayoijiichan/Izayoi.Data.git?path=Izayoi.Data.Comparable",
+    "com.izayoi.data.packs": "https://github.com/izayoijiichan/Izayoi.Data.git?path=Izayoi.Data.Packs",
+    "com.izayoi.data.timestampedobjects": "https://github.com/izayoijiichan/Izayoi.Data.git?path=Izayoi.Data.TimestampedObjects",
+    "com.izayoi.data.validation": "https://github.com/izayoijiichan/Izayoi.Data.git?path=Izayoi.Data.Validation",
+    "org.nuget.microsoft.bcl.hashcode": "6.0.0",
+    "org.nuget.system.componentmodel.annotations": "4.4.0"
+  }
 }
 ~~~
-
-### QueryBuilder
-
-See [QueryBuilder](Documentation/API/Query/Builders/QueryBuilder.md).
-
-### DbRepository
-
-See [DbRepositoryBase](Documentation/API/Repository/DbRepositoryBase.md).
-
-### DataValidator
-
-See [DataValidator](Documentation/API/Validation/DataValidator.md).
-
 ___
-Last updated: 9 September, 2024  
+Last updated: 1 February, 2025  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2024 Izayoi Jiichan. All Rights Reserved.*

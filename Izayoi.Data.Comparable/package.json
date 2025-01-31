@@ -1,0 +1,18 @@
+{
+  "name": "com.izayoi.data.comparable",
+  "displayName": "Izayoi.Data.Comparable",
+  "description": "This is a collection of comparable objects.",
+  "author": "Izayoi Jiichan",
+  "version": "1.0.0",
+  "keywords": [
+    "nuget",
+    "comparable",
+    "nullable",
+    "enum",
+    "struct"
+  ],
+  "unity": "2021.3",
+  "dependencies": {
+    "org.nuget.microsoft.bcl.hashcode": "6.0.0"
+  }
+}

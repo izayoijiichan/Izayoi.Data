@@ -1,0 +1,17 @@
+{
+    "name": "Izayoi.Data.Packs",
+    "rootNamespace": "Izayoi.Data.Packs",
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "autoReferenced": true,
+    "noEngineReferences": true,
+    "overrideReferences": true,
+    "references": [],
+    "precompiledReferences": [
+        "Microsoft.Bcl.HashCode.dll"
+    ],
+    "optionalUnityReferences": [],
+    "defineConstraints": [],
+    "versionDefines": []
+}

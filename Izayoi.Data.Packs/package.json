@@ -1,0 +1,17 @@
+{
+  "name": "com.izayoi.data.packs",
+  "displayName": "Izayoi.Data.Packs",
+  "description": "This is a struct pack.",
+  "author": "Izayoi Jiichan",
+  "version": "1.0.0",
+  "keywords": [
+    "nuget",
+    "comparable",
+    "struct",
+    "pack"
+  ],
+  "unity": "2021.3",
+  "dependencies": {
+    "org.nuget.microsoft.bcl.hashcode": "6.0.0"
+  }
+}

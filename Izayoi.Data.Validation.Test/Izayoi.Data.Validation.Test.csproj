@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Izayoi.Data.Validation\Izayoi.Data.Validation.csproj" />
+    <ProjectReference Include="..\Izayoi.Data.Validation\Runtime\Izayoi.Data.Validation.csproj" />
   </ItemGroup>
 
   <ItemGroup>

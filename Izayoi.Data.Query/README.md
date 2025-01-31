@@ -10,7 +10,7 @@ This is a library that supports building query (SQL) to manipulate a database.
 
 ## Wiki
 
-[Wiki](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter/wiki)
+[Wiki](https://github.com/izayoijiichan/Izayoi.Data/wiki)
 
 ## Examples
 

@@ -21,7 +21,7 @@ A Database with a package that implements classes that inherit from the `DbComma
 
 ## Wiki
 
-[Wiki](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter/wiki)
+[Wiki](https://github.com/izayoijiichan/Izayoi.Data/wiki)
 
 ## Examples
 

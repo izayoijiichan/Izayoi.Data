@@ -12,7 +12,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>database;dbcommand;dbdatareader;orm;micro-orm;</PackageTags>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter</RepositoryUrl>
+    <RepositoryUrl>https://github.com/izayoijiichan/Izayoi.Data</RepositoryUrl>
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <Title>Izayoi.Data.DbDataMapper</Title>
     <Version>1.1.0</Version>

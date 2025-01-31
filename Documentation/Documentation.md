@@ -6,10 +6,13 @@
 
 |Assembly|
 |--|
+|Izayoi.Data.Comparable.dll|
 |Izayoi.Data.DbCommandAdapter.dll|
 |Izayoi.Data.DbDataMapper.dll|
+|Izayoi.Data.Packs.dll|
 |Izayoi.Data.Query.dll|
 |Izayoi.Data.Repository.dll|
+|Izayoi.Data.TimestampedObjects.dll|
 |Izayoi.Data.Validation.dll|
 
 ## Namespaces
@@ -17,8 +20,11 @@
 |Namespace|
 |--|
 |Izayoi.Data|
+|Izayoi.Data.Comparable|
+|Izayoi.Data.Packs|
 |Izayoi.Data.Query|
 |Izayoi.Data.Repository|
+|Izayoi.Data.TimestampedObjects|
 |Izayoi.Data.Validation|
 
 ## Classes
@@ -50,6 +56,37 @@
 |--|--|--|
 |[DbRepositoryBase](API/Repository/DbRepositoryBase.md)|Repository|A DB repository base.|
 
+### Izayoi.Data.Comparable
+
+|Class / Structure|Cateogory|Remarks|
+|--|--|--|
+|[ComparableEnum&lt;TEnum&gt;](API/Comparable/ComparableEnum-1.md)|Enum|A comparable enumulation.|
+|[ComparableNullable&lt;TValue&gt;](API/Comparable/ComparableNullable-1.md)|Nullable|A comparable nullable value.|
+
+### Izayoi.Data.Packs
+
+|Structure|Cateogory|Remarks|
+|--|--|--|
+|[ComparableStructPack&lt;TValue1, TValue2&gt;](API/Packs/ComparableStructPack-2.md)|comparable|A comparable struct pack.|
+|[ComparableStructPack&lt;TValue1, TValue2, TValue3&gt;](API/Packs/ComparableStructPack-3.md)|comparable|A comparable struct pack.|
+|[ComparableStructPack&lt;TValue1, TValue2, TValue3, TValue4&gt;](API/Packs/ComparableStructPack-4.md)|comparable|A comparable struct pack.|
+|[ComparableStructPack&lt;TValue1, TValue2, TValue3, TValue4, TValue5&gt;](API/Packs/ComparableStructPack-5.md)|comparable|A comparable struct pack.|
+|[UncomparableStructPack&lt;TValue1, TValue2&gt;](API/Packs/UncomparableStructPack-2.md)|uncomarable|A uncomparable struct pack.|
+|[UncomparableStructPack&lt;TValue1, TValue2, TValue3&gt;](API/Packs/UncomparableStructPack-3.md)|uncomarable|A uncomparable struct pack.|
+|[UncomparableStructPack&lt;TValue1, TValue2, TValue3, TValue4&gt;](API/Packs/UncomparableStructPack-4.md)|uncomarable|A uncomparable struct pack.|
+|[UncomparableStructPack&lt;TValue1, TValue2, TValue3, TValue4, TValue5&gt;](API/Packs/UncomparableStructPack-5.md)|uncomarable|A uncomparable struct pack.|
+
+### Izayoi.Data.TimestampedObjects
+
+|Class / Structure|Cateogory|Remarks|
+|--|--|--|
+|[ComparableTimestampedClass&lt;TValue&gt;](API/TimestampedObjects/ComparableTimestampedClass-1.md)|comparable|A comparable timestamped class that can be assigned comparable class.|
+|[ComparableTimestampedObject&lt;TValue&gt;](API/TimestampedObjects/ComparableTimestampedObject-1.md)|comparable|A comparable timestamped class that can be assigned comparable object.|
+|[ComparableTimestampedStruct&lt;TValue&gt;](API/TimestampedObjects/ComparableTimestampedStruct-1.md)|comparable|A comparable timestamped structure that can be assigned comparable structure.|
+|[UncomparableTimestampedClass&lt;TValue&gt;](API/TimestampedObjects/UncomparableTimestampedClass-1.md)|uncomparable|A uncomparable timestamped class that can be assigned uncomparable class.|
+|[UncomparableTimestampedObject&lt;TValue&gt;](API/TimestampedObjects/UncomparableTimestampedObject-1.md)|uncomparable|A uncomparable timestamped class that can be assigned uncomparable object.|
+|[UncomparableTimestampedStruct&lt;TValue&gt;](API/TimestampedObjects/UncomparableTimestampedStruct-1.md)|uncomparable|A uncomparable timestamped structure that can be assigned uncomparable structure.|
+
 ### Izayoi.Data.Validation
 
 |Class|Cateogory|Remarks|
@@ -58,6 +95,8 @@
 |[ValidationError](API/Validation/ValidationError.md)|Validation|A validation error.|
 
 ## Available Databases
+
+for Izayoi.Data.Query
 
 A Database with a package that implements classes that inherit from the `DbCommand` and `DbDataReader` classes.
 

@@ -1,0 +1,16 @@
+{
+  "name": "com.izayoi.data.validation",
+  "displayName": "Izayoi.Data.Validation",
+  "description": "This is a fast validator.",
+  "author": "Izayoi Jiichan",
+  "version": "1.2.0",
+  "keywords": [
+    "nuget",
+    "validation",
+    "validator"
+  ],
+  "unity": "2021.3",
+  "dependencies": {
+    "org.nuget.system.componentmodel.annotations": "4.4.0"
+  }
+}

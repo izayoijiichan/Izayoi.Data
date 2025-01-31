@@ -14,13 +14,6 @@ This is a fast validator.
     - Using resource files makes localization simple and easy to implement.
     - Supports defined CultureInfo.
 
-## Applies to
-
-|Product|Versions|
-|--|--|
-|.NET|8, 9|
-|.NET Standard|2.0, 2.1|
-
 ## Examples
 
 ### Model Class
@@ -85,12 +78,20 @@ You need to prepare resource files (.resx), `ValidationAttribute` and `DisplayAt
 
 For more information, see the Documentation or Wiki.
 
+## Applies to
+
+|Product|Versions|
+|--|--|
+|.NET|8, 9|
+|.NET Standard|2.0, 2.1|
+|Unity|2021, 2022, 6000|
+
 ## Wiki
 
-[Wiki](https://github.com/izayoijiichan/Izayoi.Data.DbCommandAdapter/wiki)
+[Wiki](https://github.com/izayoijiichan/Izayoi.Data/wiki)
 
 ___
-Last updated: 5 January, 2025  
+Last updated: 1 February, 2025  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2024 Izayoi Jiichan. All Rights Reserved.*
