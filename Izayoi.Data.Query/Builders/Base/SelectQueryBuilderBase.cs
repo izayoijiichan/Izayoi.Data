@@ -42,6 +42,9 @@ namespace Izayoi.Data.Query
 
         protected virtual bool BuildQuery(in Select select)
         {
+            // WITH
+            AppendWith(select.With);
+
             // SELECT
             AppendSelect(select.Type, select.Fields, select.From, select.Offset, select.Limit);
 
@@ -80,12 +83,347 @@ namespace Izayoi.Data.Query
 
         #endregion
 
+        #region With Methods
+
+        protected virtual void BuildCteSelect(in Select select, int cteIndex, int selectIndex, int indentDepth = 0)
+        {
+            string ctePrefix = $"c_{cteIndex}_{selectIndex}_";
+
+            // SELECT
+            AppendSelect(select.Type, select.Fields, select.From, select.Offset, select.Limit, indentDepth);
+
+            // FROM
+            AppendFrom(select.From, indentDepth);
+
+            // JOIN
+            AppendJoin(select.From.Joins, indentDepth);
+
+            // WHERE
+            AppendWhere(select.Wheres, ctePrefix, indentDepth);
+
+            // GROUP BY
+            AppendGroupBy(select.Groups, indentDepth);
+
+            // HAVING
+            AppendHaving(select.Havings, ctePrefix, indentDepth);
+
+            // ORDER BY
+            AppendOrderBy(select.Orders, indentDepth);
+
+            // LIMIT
+            AppendLimit(select.Limit, indentDepth);
+
+            // OFFSET
+            AppendOffset(select.Offset, indentDepth);
+
+            // OFFSET FETCH (SQLServer)
+            AppendOffsetFetch(select.Offset, select.Limit, select.Orders.Any(), indentDepth);
+
+            // FOR
+            AppendFor(select.For, indentDepth);
+        }
+
+        protected virtual void AppendWith(in With with)
+        {
+            if (with.IsEnable == false)
+            {
+                return;
+            }
+
+            //if (with.CteList.Count == 0)
+            //{
+            //    return;
+            //}
+
+            _stringBuilder.Append("WITH");
+
+            if (with.IsRecursive)
+            {
+                _stringBuilder.Append(" RECURSIVE");
+            }
+
+            if (_option.EnableFormat)
+            {
+                int indent = GetFixedIndentCount();
+
+                for (int cteIndex = 0; cteIndex < with.CteList.Count; cteIndex++)
+                {
+                    CommonTableExpression cte = with.CteList[cteIndex];
+
+                    _stringBuilder.AppendLine();
+
+                    string expressionName = cte.GetExpressionName(_option.QuotationMarks);
+
+                    if (_option.BeforeComma)
+                    {
+                        if (cteIndex == 0)
+                        {
+                            _stringBuilder.Append(new string(' ', indent));
+                        }
+                        else
+                        {
+                            if (indent >= 3)
+                            {
+                                _stringBuilder.Append(new string(' ', indent - 2));
+                            }
+
+                            _stringBuilder.Append(", ");
+                        }
+
+                        _stringBuilder.Append(expressionName);
+
+                        if (cte.ColumnNames.Count == 1)
+                        {
+                            string columnNames = cte.GetColumnNames(_option.QuotationMarks);
+
+                            _stringBuilder.Append($"({columnNames})");
+                        }
+                        else if (cte.ColumnNames.Count >= 2)
+                        {
+                            _stringBuilder.Append(" (");
+
+                            AppendCteColumnNames(cte, indent, indentDepth: 1);
+
+                            _stringBuilder
+                                .AppendLine()
+                                .Append(new string(' ', indent))
+                                .Append(')');
+                        }
+                    }
+                    else  // After Comma
+                    {
+                        _stringBuilder
+                            .Append(new string(' ', indent))
+                            .Append(expressionName);
+
+                        if (cte.ColumnNames.Count == 1)
+                        {
+                            string columnNames = cte.GetColumnNames(_option.QuotationMarks);
+
+                            _stringBuilder.Append($"({columnNames})");
+                        }
+                        else if (cte.ColumnNames.Count >= 2)
+                        {
+                            _stringBuilder.Append(" (");
+
+                            AppendCteColumnNames(cte, indent, indentDepth: 1);
+
+                            _stringBuilder
+                                .AppendLine()
+                                .Append(new string(' ', indent))
+                                .Append(')');
+                        }
+                    }
+
+                    if (_option.EnableFormat && cte.ColumnNames.Count >= 2)
+                    {
+                        _stringBuilder.Append(" AS (");
+                    }
+                    else
+                    {
+                        _stringBuilder
+                            .Append(" AS")
+                            .AppendLine()
+                            .Append(new string(' ', indent))
+                            .Append('(');
+                    }
+
+                    for (int selectIndex = 0; selectIndex < cte.Selects.Count; selectIndex++)
+                    {
+                        Select select = cte.Selects[selectIndex];
+
+                        _stringBuilder.AppendLine();
+
+                        if (selectIndex > 0)
+                        {
+                            string connect = cte.GetConnect(selectIndex, defaultValue: "UNION");
+
+                            _stringBuilder
+                                .Append(new string(' ', indent * 2))
+                                .Append(connect)
+                                .AppendLine();
+                        }
+
+                        BuildCteSelect(select, cteIndex, selectIndex, indentDepth: 2);
+                    }
+
+                    _stringBuilder
+                        .AppendLine()
+                        .Append(new string(' ', indent))
+                        .Append(')');
+
+                    if (_option.BeforeComma)
+                    {
+                        //
+                    }
+                    else  // After Comma
+                    {
+                        if (cteIndex < with.CteList.Count - 1)
+                        {
+                            _stringBuilder.Append(',');
+                        }
+                    }
+                }
+
+                _stringBuilder.AppendLine();
+            }
+            else
+            {
+                for (int cteIndex = 0; cteIndex < with.CteList.Count; cteIndex++)
+                {
+                    CommonTableExpression cte = with.CteList[cteIndex];
+
+                    if (with.CteList.Count == 1)
+                    {
+                        _stringBuilder.Append(' ');
+                    }
+                    else
+                    {
+                        if (cteIndex > 0)
+                        {
+                            _stringBuilder.Append(',');
+                        }
+
+                        _stringBuilder.AppendLine();
+                    }
+
+                    string expression = cte.GetExpression(_option.QuotationMarks);
+
+                    _stringBuilder
+                        .Append(expression)
+                        .Append(" AS (");
+
+                    if (cte.Selects.Count == 1)
+                    {
+                        Select select = cte.Selects[0];
+
+                        _stringBuilder.AppendLine();
+
+                        BuildCteSelect(select, cteIndex, selectIndex: 0);
+                    }
+                    else
+                    {
+                        for (int selectIndex = 0; selectIndex < cte.Selects.Count; selectIndex++)
+                        {
+                            Select select = cte.Selects[selectIndex];
+
+                            _stringBuilder.AppendLine();
+
+                            if (selectIndex > 0)
+                            {
+                                string connect = cte.GetConnect(selectIndex, defaultValue: "UNION");
+
+                                _stringBuilder.AppendLine(connect);
+                            }
+
+                            BuildCteSelect(select, cteIndex, selectIndex);
+                        }
+                    }
+
+                    _stringBuilder
+                        .AppendLine()
+                        .Append(')');
+                }
+
+                _stringBuilder.AppendLine();
+            }
+        }
+
+        protected virtual void AppendCteColumnNames(CommonTableExpression cte, int indent, int indentDepth)
+        {
+            if (cte.ColumnNames.Count == 0)
+            {
+                return;
+            }
+
+            if (_option.EnableFormat)
+            {
+                if (cte.ColumnNames.Count == 1)
+                {
+                    _stringBuilder.Append(cte.GetColumnNames(_option.QuotationMarks));
+
+                    return;
+                }
+
+                if (_option.BeforeComma)
+                {
+                    for (int index = 0; index < cte.ColumnNames.Count; index++)
+                    {
+                        string columnName = cte.ColumnNames[index];
+
+                        _stringBuilder.AppendLine();
+
+                        if (index == 0)
+                        {
+                            _stringBuilder.Append(new string(' ', indent * (indentDepth + 1)));
+                        }
+                        else
+                        {
+                            if (indent * (indentDepth + 1) >= 3)
+                            {
+                                _stringBuilder.Append(new string(' ', indent * (indentDepth + 1) - 2));
+                            }
+
+                            _stringBuilder.Append(", ");
+                        }
+
+                        if (_option.QuotationMarks.IsAvailable)
+                        {
+                            _stringBuilder.Append(_option.QuotationMarks.Enclose(columnName));
+                        }
+                        else
+                        {
+                            _stringBuilder.Append(columnName);
+                        }
+                    }
+                }
+                else  // After Comma
+                {
+                    for (int index = 0; index < cte.ColumnNames.Count; index++)
+                    {
+                        string columnName = cte.ColumnNames[index];
+
+                        _stringBuilder
+                            .AppendLine()
+                            .Append(new string(' ', indent * (indentDepth + 1)));
+
+                        if (_option.QuotationMarks.IsAvailable)
+                        {
+                            _stringBuilder.Append(_option.QuotationMarks.Enclose(columnName));
+                        }
+                        else
+                        {
+                            _stringBuilder.Append(columnName);
+                        }
+
+                        if (index < cte.ColumnNames.Count - 1)
+                        {
+                            _stringBuilder.Append(',');
+                        }
+                    }
+                }
+            }
+            else
+            {
+                _stringBuilder.Append(cte.GetColumnNames(_option.QuotationMarks));
+            }
+        }
+
+        #endregion
+
         #region Select Methods
 
-        protected virtual void AppendSelect(in SType type, in Fields fields, in From from, int offset, int limit)
+        protected virtual void AppendSelect(in SType type, in Fields fields, in From from, int offset, int limit, int indentDepth = 0)
         {
             // SELECT
             {
+                if (_option.EnableFormat)
+                {
+                    int indent = GetFixedIndentCount();
+
+                    _stringBuilder.Append(new string(' ', indent * indentDepth));
+                }
+
                 _stringBuilder.Append("SELECT");
 
                 if (type == SType.ALL)
@@ -103,13 +441,13 @@ namespace Izayoi.Data.Query
             }
 
             // TOP (SQLServer)
-            AppendTop(offset, limit);
+            AppendTop(offset, limit, indentDepth);
 
             // LIST
-            AppendSelectList(fields, from);
+            AppendSelectList(fields, from, indentDepth);
         }
 
-        protected virtual void AppendTop(int offset, int limit)
+        protected virtual void AppendTop(int offset, int limit, int indentDepth = 0)
         {
             if (_option.RdbKind == RdbKind.SqlServer)
             {
@@ -122,8 +460,11 @@ namespace Izayoi.Data.Query
                 {
                     if (_option.EnableFormat)
                     {
-                        _stringBuilder.AppendLine();
+                        int indent = GetFixedIndentCount();
 
+                        _stringBuilder
+                            .AppendLine()
+                            .Append(new string(' ', indent * indentDepth));
                     }
                     else
                     {
@@ -135,7 +476,7 @@ namespace Izayoi.Data.Query
             }
         }
 
-        protected virtual void AppendSelectList(in Fields fields, in From from)
+        protected virtual void AppendSelectList(in Fields fields, in From from, in int indentDepth = 0)
         {
             if (fields.Count == 0)
             {
@@ -147,7 +488,7 @@ namespace Izayoi.Data.Query
 
                     _stringBuilder
                         .AppendLine()
-                        .Append(new string(' ', indent))
+                        .Append(new string(' ', indent * (indentDepth + 1)))
                         .Append(table)
                         .Append('.')
                         .Append('*');
@@ -185,13 +526,13 @@ namespace Izayoi.Data.Query
 
                     if (index == 0)
                     {
-                        _stringBuilder.Append(new string(' ', indent));
+                        _stringBuilder.Append(new string(' ', indent * (indentDepth + 1)));
                     }
                     else
                     {
-                        if (indent >= 3)
+                        if (indent * (indentDepth + 1) >= 3)
                         {
-                            _stringBuilder.Append(new string(' ', indent - 2));
+                            _stringBuilder.Append(new string(' ', indent * (indentDepth + 1) - 2));
                         }
 
                         _stringBuilder.Append(", ");
@@ -210,7 +551,7 @@ namespace Izayoi.Data.Query
 
                     _stringBuilder
                         .AppendLine()
-                        .Append(new string(' ', indent))
+                        .Append(new string(' ', indent * (indentDepth + 1)))
                         .Append(field.ToQuery(_option.QuotationMarks));
 
                     if (index < fields.Count - 1)
@@ -225,22 +566,38 @@ namespace Izayoi.Data.Query
 
         #region From Methods
 
-        protected virtual void AppendFrom(in From from)
+        protected virtual void AppendFrom(in From from, in int indentDepth = 0)
         {
-            _stringBuilder.AppendLine();
-
             if (_option.EnableFormat)
             {
+                string schemaDotTableAsAlias = from.GetSchemaDotTableAsAlias(_option.QuotationMarks);
+
+                if (string.IsNullOrEmpty(schemaDotTableAsAlias))
+                {
+                    return;
+                }
+
                 int indent = GetFixedIndentCount();
 
                 _stringBuilder
+                    .AppendLine()
+                    .Append(new string(' ', indent * indentDepth))
                     .AppendLine("FROM")
-                    .Append(new string(' ', indent))
-                    .Append(from.GetSchemaDotTableAsAlias(_option.QuotationMarks));
+                    .Append(new string(' ', indent * (indentDepth + 1)))
+                    .Append(schemaDotTableAsAlias);
             }
             else
             {
-                _stringBuilder.Append(from.ToQuery(_option.QuotationMarks, excludeJoin: true));
+                string fromQuery = from.ToQuery(_option.QuotationMarks, excludeJoin: true);
+
+                if (string.IsNullOrEmpty(fromQuery))
+                {
+                    return;
+                }
+
+                _stringBuilder
+                    .AppendLine()
+                    .Append(fromQuery);
             }
         }
 
@@ -248,7 +605,7 @@ namespace Izayoi.Data.Query
 
         #region Join Methods
 
-        protected virtual void AppendJoin(in Joins joins)
+        protected virtual void AppendJoin(in Joins joins, in int indentDepth = 0)
         {
             if (joins.Count == 0)
             {
@@ -270,7 +627,7 @@ namespace Izayoi.Data.Query
             {
                 _stringBuilder
                     .AppendLine()
-                    .Append(new string(' ', indent))
+                    .Append(new string(' ', indent * (indentDepth + 1)))
                     .Append(join.Type.Name())
                     .Append(' ');
 
@@ -292,7 +649,7 @@ namespace Izayoi.Data.Query
 
                 _stringBuilder
                     .AppendLine()
-                    .Append(new string(' ', indent * 2))
+                    .Append(new string(' ', indent * (indentDepth + 2)))
                     .Append("ON (")
                     .Append(join.Condition)
                     .Append(')');
@@ -303,16 +660,16 @@ namespace Izayoi.Data.Query
 
         #region Where Methods
 
-        protected virtual void AppendWhere(in Wheres wheres)
+        protected virtual void AppendWhere(in Wheres wheres, in string ctePrefix = "", in int indentDepth = 0)
         {
-            AppendSearchCondition(wheres, "WHERE");
+            AppendSearchCondition(wheres, "WHERE", ctePrefix, indentDepth);
         }
 
         #endregion
 
         #region Group by Methods
 
-        protected virtual void AppendGroupBy(in Groups groups)
+        protected virtual void AppendGroupBy(in Groups groups, in int indentDepth = 0)
         {
             if (groups.Count == 0)
             {
@@ -332,6 +689,7 @@ namespace Izayoi.Data.Query
 
             _stringBuilder
                 .AppendLine()
+                .Append(new string(' ', indent * indentDepth))
                 .Append("GROUP BY");
 
             if (_option.BeforeComma)
@@ -344,13 +702,13 @@ namespace Izayoi.Data.Query
 
                     if (index == 0)
                     {
-                        _stringBuilder.Append(new string(' ', indent));
+                        _stringBuilder.Append(new string(' ', indent * (indentDepth + 1)));
                     }
                     else
                     {
-                        if (indent >= 3)
+                        if (indent * (indentDepth + 1) >= 3)
                         {
-                            _stringBuilder.Append(new string(' ', indent - 2));
+                            _stringBuilder.Append(new string(' ', indent * (indentDepth + 1) - 2));
                         }
 
                         _stringBuilder.Append(", ");
@@ -367,7 +725,7 @@ namespace Izayoi.Data.Query
 
                     _stringBuilder
                         .AppendLine()
-                        .Append(new string(' ', indent))
+                        .Append(new string(' ', indent * (indentDepth + 1)))
                         .Append(groups.GetFieldName(fieldExpression, _option.QuotationMarks));
 
                     if (index < groups.Count - 1)
@@ -382,16 +740,16 @@ namespace Izayoi.Data.Query
 
         #region Having Methods
 
-        protected virtual void AppendHaving(in Havings havings)
+        protected virtual void AppendHaving(in Havings havings, in string ctePrefix = "", in int indentDepth = 0)
         {
-            AppendSearchCondition(havings, "HAVING");
+            AppendSearchCondition(havings, "HAVING", ctePrefix, indentDepth);
         }
 
         #endregion
 
         #region Order by Methods
 
-        protected virtual void AppendOrderBy(in Orders orders)
+        protected virtual void AppendOrderBy(in Orders orders, in int indentDepth = 0)
         {
             if (orders.Count == 0)
             {
@@ -411,6 +769,7 @@ namespace Izayoi.Data.Query
 
             _stringBuilder
                 .AppendLine()
+                .Append(new string(' ', indent * indentDepth))
                 .Append("ORDER BY");
 
             if (_option.BeforeComma)
@@ -423,13 +782,13 @@ namespace Izayoi.Data.Query
 
                     if (index == 0)
                     {
-                        _stringBuilder.Append(new string(' ', indent));
+                        _stringBuilder.Append(new string(' ', indent * (indentDepth + 1)));
                     }
                     else
                     {
-                        if (indent >= 3)
+                        if (indent * (indentDepth + 1) >= 3)
                         {
-                            _stringBuilder.Append(new string(' ', indent - 2));
+                            _stringBuilder.Append(new string(' ', indent * (indentDepth + 1) - 2));
                         }
 
                         _stringBuilder.Append(", ");
@@ -446,7 +805,7 @@ namespace Izayoi.Data.Query
 
                     _stringBuilder
                         .AppendLine()
-                        .Append(new string(' ', indent))
+                        .Append(new string(' ', indent * (indentDepth + 1)))
                         .Append(order.ToQuery(_option.QuotationMarks));
 
                     if (index < orders.Count - 1)
@@ -461,7 +820,7 @@ namespace Izayoi.Data.Query
 
         #region Offset and Limit Methods
 
-        protected virtual void AppendLimit(int limit)
+        protected virtual void AppendLimit(int limit, int indentDepth = 0)
         {
             if (limit <= 0)
             {
@@ -479,8 +838,9 @@ namespace Izayoi.Data.Query
 
                 _stringBuilder
                     .AppendLine()
+                    .Append(new string(' ', indent * indentDepth))
                     .AppendLine("LIMIT")
-                    .Append(new string(' ', indent))
+                    .Append(new string(' ', indent * (indentDepth + 1)))
                     .Append(limit);
             }
             else
@@ -494,7 +854,7 @@ namespace Izayoi.Data.Query
             }
         }
 
-        protected virtual void AppendOffset(int offset)
+        protected virtual void AppendOffset(int offset, int indentDepth = 0)
         {
             if (offset <= 0)
             {
@@ -512,8 +872,9 @@ namespace Izayoi.Data.Query
 
                 _stringBuilder
                     .AppendLine()
+                    .Append(new string(' ', indent * indentDepth))
                     .AppendLine("OFFSET")
-                    .Append(new string(' ', indent))
+                    .Append(new string(' ', indent * (indentDepth + 1)))
                     .Append(offset);
             }
             else
@@ -526,7 +887,7 @@ namespace Izayoi.Data.Query
             }
         }
 
-        protected virtual void AppendOffsetFetch(int offset, int limit, bool hasOrderBy)
+        protected virtual void AppendOffsetFetch(int offset, int limit, bool hasOrderBy, int indentDepth = 0)
         {
             if (_option.RdbKind == RdbKind.SqlServer)
             {
@@ -539,15 +900,27 @@ namespace Izayoi.Data.Query
 
                     if (offset >= 1)
                     {
-                        _stringBuilder
-                            .AppendLine()
-                            .Append($"OFFSET {offset} ROWS");
+                        int indent = GetFixedIndentCount();
+
+                        _stringBuilder.AppendLine();
+
+                        if (_option.EnableFormat)
+                        {
+                            _stringBuilder.Append(new string(' ', indent * indentDepth));
+                        }
+
+                        _stringBuilder.Append($"OFFSET {offset} ROWS");
 
                         if (limit >= 1)
                         {
-                            _stringBuilder
-                                .AppendLine()
-                                .Append($"FETCH NEXT {limit} ROWS ONLY");
+                            _stringBuilder.AppendLine();
+
+                            if (_option.EnableFormat)
+                            {
+                                _stringBuilder.Append(new string(' ', indent * indentDepth));
+                            }
+
+                            _stringBuilder.Append($"FETCH NEXT {limit} ROWS ONLY");
                         }
                     }
                 }
@@ -558,7 +931,7 @@ namespace Izayoi.Data.Query
 
         #region For Methods
 
-        protected virtual void AppendFor(in For for_)
+        protected virtual void AppendFor(in For for_, in int indentDepth = 0)
         {
             if (for_.IsEnabled == false)
             {
@@ -588,19 +961,22 @@ namespace Izayoi.Data.Query
                     return;
                 }
 
+                int indent = GetFixedIndentCount();
+
                 _stringBuilder
                     .AppendLine()
+                    .Append(new string(' ', indent * indentDepth))
                     .Append($"FOR JSON {json.Mode.Name()}");
-
-                int indent = GetFixedIndentCount();
 
                 if (_option.BeforeComma)
                 {
                     if (json.RootName is not null)
                     {
-                        _stringBuilder.AppendLine();
+                        _stringBuilder
+                            .AppendLine()
+                            .Append(new string(' ', indent * indentDepth));
 
-                        if (indent >= 3)
+                        if (indent * (indentDepth + 1) >= 3)
                         {
                             _stringBuilder.Append(new string(' ', indent - 2));
                         }
@@ -612,9 +988,11 @@ namespace Izayoi.Data.Query
 
                     if (json.IncludeNullValues)
                     {
-                        _stringBuilder.AppendLine();
+                        _stringBuilder
+                            .AppendLine()
+                            .Append(new string(' ', indent * indentDepth));
 
-                        if (indent >= 3)
+                        if (indent * (indentDepth + 1) >= 3)
                         {
                             _stringBuilder.Append(new string(' ', indent - 2));
                         }
@@ -625,9 +1003,11 @@ namespace Izayoi.Data.Query
 
                     if (json.WithoutArrayWrapper)
                     {
-                        _stringBuilder.AppendLine();
+                        _stringBuilder
+                            .AppendLine()
+                            .Append(new string(' ', indent * indentDepth));
 
-                        if (indent >= 3)
+                        if (indent * (indentDepth + 1) >= 3)
                         {
                             _stringBuilder.Append(new string(' ', indent - 2));
                         }
@@ -643,7 +1023,7 @@ namespace Izayoi.Data.Query
                         _stringBuilder
                             .Append(',')
                             .AppendLine()
-                            .Append(new string(' ', indent))
+                            .Append(new string(' ', indent * (indentDepth + 1)))
                             .Append(json.GetRootNameQuery());
                     }
 
@@ -652,7 +1032,7 @@ namespace Izayoi.Data.Query
                         _stringBuilder
                             .Append(',')
                             .AppendLine()
-                            .Append(new string(' ', indent))
+                            .Append(new string(' ', indent * (indentDepth + 1)))
                             .Append("INCLUDE_NULL_VALUES");
                     }
 
@@ -661,7 +1041,7 @@ namespace Izayoi.Data.Query
                         _stringBuilder
                             .Append(',')
                             .AppendLine()
-                            .Append(new string(' ', indent))
+                            .Append(new string(' ', indent * (indentDepth + 1)))
                             .Append("WITHOUT_ARRAY_WRAPPER");
                     }
                 }
@@ -677,7 +1057,7 @@ namespace Izayoi.Data.Query
         /// </summary>
         /// <param name="searchConditions"></param>
         /// <param name="clauseName">WHERE or HAVING</param>
-        protected virtual void AppendSearchCondition(in SearchConditions searchConditions, in string clauseName)
+        protected virtual void AppendSearchCondition(in SearchConditions searchConditions, in string clauseName, in string ctePrefix = "", in int indentDepth = 0)
         {
             if (searchConditions.Count == 0)
             {
@@ -688,11 +1068,11 @@ namespace Izayoi.Data.Query
 
             if (clauseName == "WHERE")
             {
-                parameterPrefix = "w";
+                parameterPrefix = ctePrefix + "w";
             }
             else if (clauseName == "HAVING")
             {
-                parameterPrefix = "h";
+                parameterPrefix = ctePrefix + "h";
             }
             else
             {
@@ -703,6 +1083,7 @@ namespace Izayoi.Data.Query
 
             _stringBuilder
                 .AppendLine()
+                .Append(new string(' ', indent * indentDepth))
                 .Append(clauseName);
 
             for (int whereIndex = 0; whereIndex < searchConditions.Count; whereIndex++)
@@ -715,6 +1096,7 @@ namespace Izayoi.Data.Query
                     {
                         _stringBuilder
                             .AppendLine()
+                            .Append(new string(' ', indent * indentDepth))
                             .Append("  AND");
                     }
                     else
@@ -728,6 +1110,7 @@ namespace Izayoi.Data.Query
                     {
                         _stringBuilder
                             .AppendLine()
+                            .Append(new string(' ', indent * indentDepth))
                             .Append("  OR");
                     }
                     else
@@ -753,7 +1136,7 @@ namespace Izayoi.Data.Query
                     {
                         _stringBuilder
                             .AppendLine()
-                            .Append(new string(' ', indent))
+                            .Append(new string(' ', indent * (indentDepth + 1)))
                             .Append(sc.EnclosureL);
                     }
                     else
@@ -766,7 +1149,7 @@ namespace Izayoi.Data.Query
                 {
                     _stringBuilder
                         .AppendLine()
-                        .Append(new string(' ', indent));
+                        .Append(new string(' ', indent * (indentDepth + 1)));
                 }
 
                 _stringBuilder
@@ -983,7 +1366,7 @@ namespace Izayoi.Data.Query
                     {
                         _stringBuilder
                             .AppendLine()
-                            .Append(new string(' ', indent))
+                            .Append(new string(' ', indent * (indentDepth + 1)))
                             .Append(sc.EnclosureR);
                     }
                     else

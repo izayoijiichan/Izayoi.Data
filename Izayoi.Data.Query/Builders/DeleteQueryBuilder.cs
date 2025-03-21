@@ -55,6 +55,9 @@ namespace Izayoi.Data.Query
 
         protected virtual bool BuildQuery(in Delete delete)
         {
+            // WITH
+            AppendWith(delete.With);
+
             // DELETE
             AppendDelete();
 

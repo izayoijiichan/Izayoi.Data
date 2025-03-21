@@ -56,6 +56,9 @@ namespace Izayoi.Data.Query
 
         protected virtual bool BuildQuery(in Update update)
         {
+            // WITH
+            AppendWith(update.With);
+
             // UPDATE
             AppendUpdate(update.TableSource, update.From);
 

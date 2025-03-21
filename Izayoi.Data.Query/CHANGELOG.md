@@ -1,5 +1,10 @@
 # Change Log
 
+## [1.2.0] - 2025-03-22
+
+- Features
+`with` clause is now supported.
+
 ## [1.1.0] - 2025-01-05
 
 - Features

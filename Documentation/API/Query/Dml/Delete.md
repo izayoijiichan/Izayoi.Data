@@ -37,6 +37,10 @@ FROM clause and JOIN clause
 
 WHERE clause
 
+#### `With` With
+
+WITH clause
+
 ## Methods
 
 |Name|Returns|
@@ -74,6 +78,8 @@ WHERE clause
 |AddWhere(CType connector, char enclosureL, string fieldName, OpType operate, object? value, bool isExpression, char? enclosureR = null)|Delete|
 |AddWhere(CType connector, char enclosureL, string fieldName, OpType operate, object? value, DbType? dbType, bool isExpression, char? enclosureR)|Delete|
 |ClearWhere()|Delete|
+|SetWith(bool recursive)|Delete|
+|ClearWith()|Delete|
 
 ## Applies to
 

@@ -47,6 +47,10 @@ Used when using a JOIN clause in PostgreSQL, SQLite and SQL Server.
 
 WHERE clause
 
+#### `With` With
+
+WITH clause
+
 ## Methods
 
 |Name|Returns|
@@ -97,6 +101,8 @@ WHERE clause
 |AddWhere(CType connector, char enclosureL, string fieldName, OpType operate, object? value, bool isExpression, char? enclosureR = null)|Update|
 |AddWhere(CType connector, char enclosureL, string fieldName, OpType operate, object? value, DbType? dbType, bool isExpression, char? enclosureR)|Update|
 |ClearWhere()|Update|
+|SetWith(bool recursive)|Update|
+|ClearWith()|Update|
 
 ## Applies to
 

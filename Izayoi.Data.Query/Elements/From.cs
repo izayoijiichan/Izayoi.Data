@@ -56,13 +56,20 @@ namespace Izayoi.Data.Query
 
         public string ToQuery(QuotationMarkSet quotationMarks, bool excludeJoin = false)
         {
+            string schemaDotTableAsAlias = GetSchemaDotTableAsAlias(quotationMarks);
+
+            if (string.IsNullOrEmpty(schemaDotTableAsAlias))
+            {
+                return string.Empty;
+            }
+
             if (excludeJoin)
             {
-                return $"FROM {GetSchemaDotTableAsAlias(quotationMarks)}";
+                return $"FROM {schemaDotTableAsAlias}";
             }
             else
             {
-                return $"FROM {GetSchemaDotTableAsAlias(quotationMarks)}" + Environment.NewLine + Joins.ToQuery(quotationMarks);
+                return $"FROM {schemaDotTableAsAlias}" + Environment.NewLine + Joins.ToQuery(quotationMarks);
             }
         }
 

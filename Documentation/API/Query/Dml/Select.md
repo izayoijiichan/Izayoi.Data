@@ -76,6 +76,10 @@ FOR clause
 
 Use only in SQL Server.
 
+#### `With` With
+
+WITH clause
+
 ## Methods
 
 |Name|Returns|
@@ -166,6 +170,8 @@ Use only in SQL Server.
 |SetFor(Json json)|Select|
 |SetFor(JsonMode mode, string? rootName = null, bool includeNullValues = false, bool withoutArrayWrapper = false)|Select|
 |ClearFor()|Select|
+|SetWith(bool recursive)|Select|
+|ClearWith()|Select|
 
 ## Applies to
 

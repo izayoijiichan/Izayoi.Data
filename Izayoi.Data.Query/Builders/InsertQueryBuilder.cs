@@ -57,6 +57,9 @@ namespace Izayoi.Data.Query
 
         protected virtual bool BuildQuery(in Insert insert)
         {
+            // WITH
+            AppendWith(insert.With);
+
             bool existsValues = insert.Values.Count > 0;
             bool existsSelect = insert.Select is not null;
 

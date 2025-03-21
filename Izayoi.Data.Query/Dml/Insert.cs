@@ -21,6 +21,8 @@ namespace Izayoi.Data.Query
 
         private Select? _select;
 
+        private readonly With _with;
+
         #endregion
 
         #region Constructors
@@ -35,6 +37,8 @@ namespace Izayoi.Data.Query
             _values = new Values();
 
             _select = null;
+
+            _with = new With();
         }
 
         /// <summary>
@@ -48,6 +52,8 @@ namespace Izayoi.Data.Query
             _values = new Values();
 
             _select = null;
+
+            _with = new With();
         }
 
         /// <summary>
@@ -62,6 +68,8 @@ namespace Izayoi.Data.Query
             _values = new Values();
 
             _select = null;
+
+            _with = new With();
         }
 
         /// <summary>
@@ -77,6 +85,8 @@ namespace Izayoi.Data.Query
             _values = new Values();
 
             _select = null;
+
+            _with = new With();
         }
 
         #endregion
@@ -105,6 +115,9 @@ namespace Izayoi.Data.Query
             get => _select;
             set => _select = value;
         }
+
+        /// <summary>With clause</summary>
+        public With With => _with;
 
         #endregion
 
@@ -212,6 +225,24 @@ namespace Izayoi.Data.Query
         public Insert ClearValues()
         {
             _values.Clear();
+
+            return this;
+        }
+
+        #endregion
+
+        #region With Methods
+
+        public Insert SetWith(bool recursive)
+        {
+            _with.SetRecursive(recursive);
+
+            return this;
+        }
+
+        public Insert ClearWith()
+        {
+            _with.Clear();
 
             return this;
         }

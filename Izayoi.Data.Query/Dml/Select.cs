@@ -33,6 +33,8 @@ namespace Izayoi.Data.Query
 
         private readonly For _for;
 
+        private With _with;
+
         #endregion
 
         #region Constructors
@@ -56,6 +58,8 @@ namespace Izayoi.Data.Query
             _limit = 0;
 
             _for = new For();
+
+            _with = new With();
         }
 
         #endregion
@@ -98,6 +102,9 @@ namespace Izayoi.Data.Query
         /// <remarks>Use only in SQL Server.</remarks>
         public For For => _for;
 
+        /// <summary>With clause</summary>
+        public With With => _with;
+
         #endregion
 
         #region Methods
@@ -123,6 +130,8 @@ namespace Izayoi.Data.Query
             _limit = 0;
 
             _for.Clear();
+
+            _with.Clear();
         }
 
         #endregion
@@ -1002,6 +1011,24 @@ namespace Izayoi.Data.Query
         public Select ClearFor()
         {
             _for.Clear();
+
+            return this;
+        }
+
+        #endregion
+
+        #region With Methods
+
+        public Select SetWith(bool recursive)
+        {
+            _with.SetRecursive(recursive);
+
+            return this;
+        }
+
+        public Select ClearWith()
+        {
+            _with.Clear();
 
             return this;
         }

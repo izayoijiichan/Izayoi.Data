@@ -51,6 +51,10 @@ SELECT clause (dml table source)
 
 It cannot be used when using the VALUES clause.
 
+#### `With` With
+
+WITH clause
+
 ## Methods
 
 |Name|Returns|
@@ -64,6 +68,8 @@ It cannot be used when using the VALUES clause.
 |AddValue(string columnName, object? value, DbType dbType)|Insert|
 |AddValue(string columnName, object? value, bool isExpression)|Insert|
 |ClearValues()|Insert|
+|SetWith(bool recursive)|Insert|
+|ClearWith()|Insert|
 
 ## Applies to
 

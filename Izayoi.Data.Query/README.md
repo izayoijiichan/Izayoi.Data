@@ -472,6 +472,80 @@ static void Main()
         //   OFFSET 10 ROWS
         //   FETCH NEXT 5 ROWS ONLY
     }
+
+    // WITH
+    {
+        var select19 = new Select()
+            .With
+            .Add(new CommonTableExpression("cte_users1")
+                .AddColumn("id")
+                .AddColumn("name")
+                .AddSelect(new Select()
+                    .SetFrom("users")
+                    .AddField("id")
+                    .AddField("name"))
+            )
+            .Add(new CommonTableExpression("cte_users2")
+                .AddColumn("id")
+                .AddColumn("name")
+                .AddSelect(new Select()
+                    .SetFrom("cte_users1")
+                    .AddField("id")
+                    .AddField("name"))
+            );
+
+            select19
+                .SetFrom("cte_users")
+                .AddField("*");
+
+        // query:
+        //   WITH cte_users1(id, name) AS (
+        //     SELECT id, name
+        //     FROM users
+        //   ),
+        //   WITH cte_users2(id, name) AS (
+        //     SELECT id, name
+        //     FROM cte_users1
+        //   )
+        //   SELECT *
+        //   FROM cte_users2
+    }
+
+    // WITH Recursive
+    {
+        var select20 = new Select()
+            .With
+            .SetRecursive(true)
+            .Add(new CommonTableExpression("cte")
+                .AddColumn("n")
+                .AddSelect(new Select()
+                    .AddField("1"))
+                .AddSelect("UNION ALL", new Select()
+                    .SetFrom("cte")
+                    .AddField("n + 1")
+                    .AddWhere("n", "<", 5))
+            );
+
+            select20
+                .SetFrom("cte_users")
+                .AddField("*");
+
+        // query:
+        //   WITH RECURSIVE cte(n) AS (
+        //     SELECT 1
+        //     UNION ALL
+        //     SELECT n + 1
+        //     FROM cte
+        //     WHERE n < @c_0_1_w_0
+        //   )
+        //   SELECT *
+        //   FROM cte
+        // parameters:
+        //   [0]:
+        //     ParameterName: @c_0_1_w_0
+        //     DbType: DbType.Int32
+        //     Value: 5
+    }
 ~~~
 
 ### Insert
@@ -662,7 +736,7 @@ static void Main()
 ~~~
 
 ___
-Last updated: 5 January, 2025  
+Last updated: 22 March, 2025  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2024 Izayoi Jiichan. All Rights Reserved.*

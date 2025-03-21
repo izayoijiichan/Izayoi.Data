@@ -2751,5 +2751,950 @@ namespace Izayoi.Data.Query.Test
         }
 
         #endregion
+
+        #region With Methods
+
+        [Fact]
+        public void Test_BuildSelect_With_c0()
+        {
+            QueryBuilder queryBuilder = new(_queryOption);
+
+            _select.With
+                .SetRecursive(false)
+                .Add(new CommonTableExpression("cte_users")
+                    .AddSelect(new Select()
+                        .SetFrom("users")
+                        .AddField("id")
+                        .AddField("name"))
+                );
+
+            _select
+                .SetFrom("cte_users")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                //.AppendLine("WITH cte_users AS (SELECT id, name FROM users)")
+                .AppendLine("WITH cte_users AS (")
+                .AppendLine("SELECT id, name")
+                .AppendLine("FROM users")
+                .AppendLine(")")
+                .AppendLine("SELECT *")
+                .Append("FROM cte_users");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.Empty(queryBuilder.Parameters);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_c0_A()
+        {
+            QueryBuilder queryBuilder = new(_queryOptionA);
+
+            _select.With
+                .SetRecursive(false)
+                .Add(new CommonTableExpression("cte_users")
+                    .AddSelect(new Select()
+                        .SetFrom("users")
+                        .AddField("id")
+                        .AddField("name"))
+                );
+
+            _select
+                .SetFrom("cte_users")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH")
+                .AppendLine("    cte_users AS")
+                .AppendLine("    (")
+                .AppendLine("        SELECT")
+                .AppendLine("            id,")
+                .AppendLine("            name")
+                .AppendLine("        FROM")
+                .AppendLine("            users")
+                .AppendLine("    )")
+                .AppendLine("SELECT")
+                .AppendLine("    *")
+                .AppendLine("FROM")
+                .Append("    cte_users");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.Empty(queryBuilder.Parameters);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_c0_B()
+        {
+            QueryBuilder queryBuilder = new(_queryOptionB);
+
+            _select.With
+                .SetRecursive(false)
+                .Add(new CommonTableExpression("cte_users")
+                    .AddSelect(new Select()
+                        .SetFrom("users")
+                        .AddField("id")
+                        .AddField("name"))
+                );
+
+            _select
+                .SetFrom("cte_users")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH")
+                .AppendLine("    cte_users AS")
+                .AppendLine("    (")
+                .AppendLine("        SELECT")
+                .AppendLine("            id")
+                .AppendLine("          , name")
+                .AppendLine("        FROM")
+                .AppendLine("            users")
+                .AppendLine("    )")
+                .AppendLine("SELECT")
+                .AppendLine("    *")
+                .AppendLine("FROM")
+                .Append("    cte_users");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.Empty(queryBuilder.Parameters);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_c2()
+        {
+            QueryBuilder queryBuilder = new(_queryOption);
+
+            _select.With
+                .SetRecursive(false)
+                .Add(new CommonTableExpression("cte_users")
+                    .AddColumn("id")
+                    .AddColumn("name")
+                    .AddSelect(new Select()
+                        .SetFrom("users")
+                        .AddField("id")
+                        .AddField("name"))
+                );
+
+            _select
+                .SetFrom("cte_users")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                //.AppendLine("WITH cte_users(id, name) AS (SELECT id, name FROM users)")
+                .AppendLine("WITH cte_users(id, name) AS (")
+                .AppendLine("SELECT id, name")
+                .AppendLine("FROM users")
+                .AppendLine(")")
+                .AppendLine("SELECT *")
+                .Append("FROM cte_users");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.Empty(queryBuilder.Parameters);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_c2_A()
+        {
+            QueryBuilder queryBuilder = new(_queryOptionA);
+
+            _select.With
+                .SetRecursive(false)
+                .Add(new CommonTableExpression("cte_users")
+                    .AddColumn("id")
+                    .AddColumn("name")
+                    .AddSelect(new Select()
+                        .SetFrom("users")
+                        .AddField("id")
+                        .AddField("name"))
+                );
+
+            _select
+                .SetFrom("cte_users")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH")
+                .AppendLine("    cte_users (")
+                .AppendLine("        id,")
+                .AppendLine("        name")
+                .AppendLine("    ) AS (")
+                .AppendLine("        SELECT")
+                .AppendLine("            id,")
+                .AppendLine("            name")
+                .AppendLine("        FROM")
+                .AppendLine("            users")
+                .AppendLine("    )")
+                .AppendLine("SELECT")
+                .AppendLine("    *")
+                .AppendLine("FROM")
+                .Append("    cte_users");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.Empty(queryBuilder.Parameters);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_c2_B()
+        {
+            QueryBuilder queryBuilder = new(_queryOptionB);
+
+            _select.With
+                .SetRecursive(false)
+                .Add(new CommonTableExpression("cte_users")
+                    .AddColumn("id")
+                    .AddColumn("name")
+                    .AddSelect(new Select()
+                        .SetFrom("users")
+                        .AddField("id")
+                        .AddField("name"))
+                );
+
+            _select
+                .SetFrom("cte_users")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH")
+                .AppendLine("    cte_users (")
+                .AppendLine("        id")
+                .AppendLine("      , name")
+                .AppendLine("    ) AS (")
+                .AppendLine("        SELECT")
+                .AppendLine("            id")
+                .AppendLine("          , name")
+                .AppendLine("        FROM")
+                .AppendLine("            users")
+                .AppendLine("    )")
+                .AppendLine("SELECT")
+                .AppendLine("    *")
+                .AppendLine("FROM")
+                .Append("    cte_users");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.Empty(queryBuilder.Parameters);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_1_2()
+        {
+            QueryBuilder queryBuilder = new(_queryOption);
+
+            _select.With
+                .SetRecursive(false)
+                .Add(new CommonTableExpression("cte_users")
+                    .AddColumn("id")
+                    .AddColumn("name")
+                    .AddSelect(new Select()
+                        .AddField("1", isExpression: true)
+                        .AddField("2", isExpression: true))
+                    .AddSelect("UNION", new Select()
+                        .AddField("3", isExpression: true)
+                        .AddField("4", isExpression: true))
+                );
+
+            _select
+                .SetFrom("cte_users")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH cte_users(id, name) AS (")
+                .AppendLine("SELECT 1, 2")
+                .AppendLine("UNION")
+                .AppendLine("SELECT 3, 4")
+                .AppendLine(")")
+                .AppendLine("SELECT *")
+                .Append("FROM cte_users");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.Empty(queryBuilder.Parameters);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_1_2_A()
+        {
+            QueryBuilder queryBuilder = new(_queryOptionA);
+
+            _select.With
+                .SetRecursive(false)
+                .Add(new CommonTableExpression("cte_users")
+                    .AddColumn("id")
+                    .AddColumn("name")
+                    .AddSelect(new Select()
+                        .AddField("1", isExpression: true)
+                        .AddField("2", isExpression: true))
+                    .AddSelect("UNION", new Select()
+                        .AddField("3", isExpression: true)
+                        .AddField("4", isExpression: true))
+                );
+
+            _select
+                .SetFrom("cte_users")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH")
+                .AppendLine("    cte_users (")
+                .AppendLine("        id,")
+                .AppendLine("        name")
+                .AppendLine("    ) AS (")
+                .AppendLine("        SELECT")
+                .AppendLine("            1,")
+                .AppendLine("            2")
+                .AppendLine("        UNION")
+                .AppendLine("        SELECT")
+                .AppendLine("            3,")
+                .AppendLine("            4")
+                .AppendLine("    )")
+                .AppendLine("SELECT")
+                .AppendLine("    *")
+                .AppendLine("FROM")
+                .Append("    cte_users");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.Empty(queryBuilder.Parameters);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_1_2_B()
+        {
+            QueryBuilder queryBuilder = new(_queryOptionB);
+
+            _select.With
+                .SetRecursive(false)
+                .Add(new CommonTableExpression("cte_users")
+                    .AddColumn("id")
+                    .AddColumn("name")
+                    .AddSelect(new Select()
+                        .AddField("1", isExpression: true)
+                        .AddField("2", isExpression: true))
+                    .AddSelect("UNION", new Select()
+                        .AddField("3", isExpression: true)
+                        .AddField("4", isExpression: true))
+                );
+
+            _select
+                .SetFrom("cte_users")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH")
+                .AppendLine("    cte_users (")
+                .AppendLine("        id")
+                .AppendLine("      , name")
+                .AppendLine("    ) AS (")
+                .AppendLine("        SELECT")
+                .AppendLine("            1")
+                .AppendLine("          , 2")
+                .AppendLine("        UNION")
+                .AppendLine("        SELECT")
+                .AppendLine("            3")
+                .AppendLine("          , 4")
+                .AppendLine("    )")
+                .AppendLine("SELECT")
+                .AppendLine("    *")
+                .AppendLine("FROM")
+                .Append("    cte_users");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.Empty(queryBuilder.Parameters);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_2_1()
+        {
+            QueryBuilder queryBuilder = new(_queryOption);
+
+            _select.With
+                .SetRecursive(false)
+                .Add(new CommonTableExpression("cte_users1")
+                    .AddColumn("id")
+                    .AddColumn("name")
+                    .AddSelect(new Select()
+                        .SetFrom("users")
+                        .AddField("id")
+                        .AddField("name"))
+                )
+                .Add(new CommonTableExpression("cte_users2")
+                    .AddColumn("id")
+                    .AddColumn("name")
+                    .AddSelect(new Select()
+                        .SetFrom("cte_users1")
+                        .AddField("id")
+                        .AddField("name"))
+                );
+
+            _select
+                .SetFrom("cte_users2")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH")
+                .AppendLine("cte_users1(id, name) AS (")
+                .AppendLine("SELECT id, name")
+                .AppendLine("FROM users")
+                .AppendLine("),")
+                .AppendLine("cte_users2(id, name) AS (")
+                .AppendLine("SELECT id, name")
+                .AppendLine("FROM cte_users1")
+                .AppendLine(")")
+                .AppendLine("SELECT *")
+                .Append("FROM cte_users2");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.Empty(queryBuilder.Parameters);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_2_1_A()
+        {
+            QueryBuilder queryBuilder = new(_queryOptionA);
+
+            _select.With
+                .SetRecursive(false)
+                .Add(new CommonTableExpression("cte_users1")
+                    .AddColumn("id")
+                    .AddColumn("name")
+                    .AddSelect(new Select()
+                        .SetFrom("users")
+                        .AddField("id")
+                        .AddField("name"))
+                )
+                .Add(new CommonTableExpression("cte_users2")
+                    .AddColumn("id")
+                    .AddColumn("name")
+                    .AddSelect(new Select()
+                        .SetFrom("cte_users1")
+                        .AddField("id")
+                        .AddField("name"))
+                );
+
+            _select
+                .SetFrom("cte_users2")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH")
+                .AppendLine("    cte_users1 (")
+                .AppendLine("        id,")
+                .AppendLine("        name")
+                .AppendLine("    ) AS (")
+                .AppendLine("        SELECT")
+                .AppendLine("            id,")
+                .AppendLine("            name")
+                .AppendLine("        FROM")
+                .AppendLine("            users")
+                .AppendLine("    ),")
+                .AppendLine("    cte_users2 (")
+                .AppendLine("        id,")
+                .AppendLine("        name")
+                .AppendLine("    ) AS (")
+                .AppendLine("        SELECT")
+                .AppendLine("            id,")
+                .AppendLine("            name")
+                .AppendLine("        FROM")
+                .AppendLine("            cte_users1")
+                .AppendLine("    )")
+                .AppendLine("SELECT")
+                .AppendLine("    *")
+                .AppendLine("FROM")
+                .Append("    cte_users2");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.Empty(queryBuilder.Parameters);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_2_1_B()
+        {
+            QueryBuilder queryBuilder = new(_queryOptionB);
+
+            _select.With
+                .SetRecursive(false)
+                .Add(new CommonTableExpression("cte_users1")
+                    .AddColumn("id")
+                    .AddColumn("name")
+                    .AddSelect(new Select()
+                        .SetFrom("users")
+                        .AddField("id")
+                        .AddField("name"))
+                )
+                .Add(new CommonTableExpression("cte_users2")
+                    .AddColumn("id")
+                    .AddColumn("name")
+                    .AddSelect(new Select()
+                        .SetFrom("cte_users1")
+                        .AddField("id")
+                        .AddField("name"))
+                );
+
+            _select
+                .SetFrom("cte_users2")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH")
+                .AppendLine("    cte_users1 (")
+                .AppendLine("        id")
+                .AppendLine("      , name")
+                .AppendLine("    ) AS (")
+                .AppendLine("        SELECT")
+                .AppendLine("            id")
+                .AppendLine("          , name")
+                .AppendLine("        FROM")
+                .AppendLine("            users")
+                .AppendLine("    )")
+                .AppendLine("  , cte_users2 (")
+                .AppendLine("        id")
+                .AppendLine("      , name")
+                .AppendLine("    ) AS (")
+                .AppendLine("        SELECT")
+                .AppendLine("            id")
+                .AppendLine("          , name")
+                .AppendLine("        FROM")
+                .AppendLine("            cte_users1")
+                .AppendLine("    )")
+                .AppendLine("SELECT")
+                .AppendLine("    *")
+                .AppendLine("FROM")
+                .Append("    cte_users2");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.Empty(queryBuilder.Parameters);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_Recursive_1()
+        {
+            QueryBuilder queryBuilder = new(_queryOption);
+
+            _select.With
+                .SetRecursive(true)
+                .Add(new CommonTableExpression("cte")
+                    .AddColumn("n")
+                    .AddSelect(new Select()
+                        .AddField("1", isExpression: true))
+                    .AddSelect("UNION ALL", new Select()
+                        .SetFrom("cte")
+                        .AddField("n + 1", isExpression: true)
+                        .AddWhere("n", "<", 5))
+                );
+
+            _select
+                .SetFrom("cte")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH RECURSIVE cte(n) AS (")
+                .AppendLine("SELECT 1")
+                .AppendLine("UNION ALL")
+                .AppendLine("SELECT n + 1")
+                .AppendLine("FROM cte")
+                .AppendLine("WHERE n < @c_0_1_w_0")
+                .AppendLine(")")
+                .AppendLine("SELECT *")
+                .Append("FROM cte");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            var parameters = queryBuilder.GetParameters();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.NotEmpty(parameters);
+
+            Assert.Equal(1, parameters.Count);
+
+            Assert.Equal("@c_0_1_w_0", parameters[0].ParameterName);
+            Assert.Equal(DbType.Int32, parameters[0].DbType);
+            Assert.Equal(5, parameters[0].Value);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_Recursive_1_A()
+        {
+            QueryBuilder queryBuilder = new(_queryOptionA);
+
+            _select.With
+                .SetRecursive(true)
+                .Add(new CommonTableExpression("cte")
+                    .AddColumn("n")
+                    .AddSelect(new Select()
+                        .AddField("1", isExpression: true))
+                    .AddSelect("UNION ALL", new Select()
+                        .SetFrom("cte")
+                        .AddField("n + 1", isExpression: true)
+                        .AddWhere("n", "<", 5))
+                );
+
+            _select
+                .SetFrom("cte")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH RECURSIVE")
+                .AppendLine("    cte(n) AS")
+                .AppendLine("    (")
+                .AppendLine("        SELECT")
+                .AppendLine("            1")
+                .AppendLine("        UNION ALL")
+                .AppendLine("        SELECT")
+                .AppendLine("            n + 1")
+                .AppendLine("        FROM")
+                .AppendLine("            cte")
+                .AppendLine("        WHERE")
+                .AppendLine("            n < @c_0_1_w_0")
+                .AppendLine("    )")
+                .AppendLine("SELECT")
+                .AppendLine("    *")
+                .AppendLine("FROM")
+                .Append("    cte");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            var parameters = queryBuilder.GetParameters();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.NotEmpty(parameters);
+
+            Assert.Equal(1, parameters.Count);
+
+            Assert.Equal("@c_0_1_w_0", parameters[0].ParameterName);
+            Assert.Equal(DbType.Int32, parameters[0].DbType);
+            Assert.Equal(5, parameters[0].Value);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_Recursive_1_B()
+        {
+            QueryBuilder queryBuilder = new(_queryOptionB);
+
+            _select.With
+                .SetRecursive(true)
+                .Add(new CommonTableExpression("cte")
+                    .AddColumn("n")
+                    .AddSelect(new Select()
+                        .AddField("1", isExpression: true))
+                    .AddSelect("UNION ALL", new Select()
+                        .SetFrom("cte")
+                        .AddField("n + 1", isExpression: true)
+                        .AddWhere("n", "<", 5))
+                );
+
+            _select
+                .SetFrom("cte")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH RECURSIVE")
+                .AppendLine("    cte(n) AS")
+                .AppendLine("    (")
+                .AppendLine("        SELECT")
+                .AppendLine("            1")
+                .AppendLine("        UNION ALL")
+                .AppendLine("        SELECT")
+                .AppendLine("            n + 1")
+                .AppendLine("        FROM")
+                .AppendLine("            cte")
+                .AppendLine("        WHERE")
+                .AppendLine("            n < @c_0_1_w_0")
+                .AppendLine("    )")
+                .AppendLine("SELECT")
+                .AppendLine("    *")
+                .AppendLine("FROM")
+                .Append("    cte");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            var parameters = queryBuilder.GetParameters();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.NotEmpty(parameters);
+
+            Assert.Equal(1, parameters.Count);
+
+            Assert.Equal("@c_0_1_w_0", parameters[0].ParameterName);
+            Assert.Equal(DbType.Int32, parameters[0].DbType);
+            Assert.Equal(5, parameters[0].Value);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_Recursive_2()
+        {
+            QueryBuilder queryBuilder = new(_queryOption);
+
+            _select.With
+                .SetRecursive(true)
+                .Add(new CommonTableExpression("cte")
+                    .AddSelect(new Select()
+                        .AddField("1", "n", isExpression: true)
+                        .AddField("CAST('abc' AS CHAR(20))", "str", isExpression: true))
+                    .AddSelect("UNION ALL", new Select()
+                        .SetFrom("cte")
+                        .AddField("n + 1", isExpression: true)
+                        .AddField("CONCAT(str, str)", isExpression: true)
+                        // SQLite
+                        //.AddField("str || str", isExpression: true)
+                        .AddWhere("n", "<", 3))
+                );
+
+            _select
+                .SetFrom("cte")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH RECURSIVE cte AS (")
+                .AppendLine("SELECT 1 AS n, CAST('abc' AS CHAR(20)) AS str")
+                .AppendLine("UNION ALL")
+                .AppendLine("SELECT n + 1, CONCAT(str, str)")
+                // SQLite
+                //.AppendLine("SELECT n + 1, str || str")
+                .AppendLine("FROM cte")
+                .AppendLine("WHERE n < @c_0_1_w_0")
+                .AppendLine(")")
+                .AppendLine("SELECT *")
+                .Append("FROM cte");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            var parameters = queryBuilder.GetParameters();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.NotEmpty(parameters);
+
+            Assert.Equal(1, parameters.Count);
+
+            Assert.Equal("@c_0_1_w_0", parameters[0].ParameterName);
+            Assert.Equal(DbType.Int32, parameters[0].DbType);
+            Assert.Equal(3, parameters[0].Value);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_Recursive_2_A()
+        {
+            QueryBuilder queryBuilder = new(_queryOptionA);
+
+            _select.With
+                .SetRecursive(true)
+                .Add(new CommonTableExpression("cte")
+                    .AddSelect(new Select()
+                        .AddField("1", "n", isExpression: true)
+                        .AddField("CAST('abc' AS CHAR(20))", "str", isExpression: true))
+                    .AddSelect("UNION ALL", new Select()
+                        .SetFrom("cte")
+                        .AddField("n + 1", isExpression: true)
+                        .AddField("CONCAT(str, str)", isExpression: true)
+                        .AddWhere("n", "<", 3))
+                );
+
+            _select
+                .SetFrom("cte")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH RECURSIVE")
+                .AppendLine("    cte AS")
+                .AppendLine("    (")
+                .AppendLine("        SELECT")
+                .AppendLine("            1 AS n,")
+                .AppendLine("            CAST('abc' AS CHAR(20)) AS str")
+                .AppendLine("        UNION ALL")
+                .AppendLine("        SELECT")
+                .AppendLine("            n + 1,")
+                .AppendLine("            CONCAT(str, str)")
+                .AppendLine("        FROM")
+                .AppendLine("            cte")
+                .AppendLine("        WHERE")
+                .AppendLine("            n < @c_0_1_w_0")
+                .AppendLine("    )")
+                .AppendLine("SELECT")
+                .AppendLine("    *")
+                .AppendLine("FROM")
+                .Append("    cte");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            var parameters = queryBuilder.GetParameters();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.NotEmpty(parameters);
+
+            Assert.Equal(1, parameters.Count);
+
+            Assert.Equal("@c_0_1_w_0", parameters[0].ParameterName);
+            Assert.Equal(DbType.Int32, parameters[0].DbType);
+            Assert.Equal(3, parameters[0].Value);
+        }
+
+        [Fact]
+        public void Test_BuildSelect_With_Recursive_2_B()
+        {
+            QueryBuilder queryBuilder = new(_queryOptionB);
+
+            _select.With
+                .SetRecursive(true)
+                .Add(new CommonTableExpression("cte")
+                    .AddSelect(new Select()
+                        .AddField("1", "n", isExpression: true)
+                        .AddField("CAST('abc' AS CHAR(20))", "str", isExpression: true))
+                    .AddSelect("UNION ALL", new Select()
+                        .SetFrom("cte")
+                        .AddField("n + 1", isExpression: true)
+                        .AddField("CONCAT(str, str)", isExpression: true)
+                        .AddWhere("n", "<", 3))
+                );
+
+            _select
+                .SetFrom("cte")
+                .AddField("*");
+
+            _expectedQueryBuilder
+                .AppendLine("WITH RECURSIVE")
+                .AppendLine("    cte AS")
+                .AppendLine("    (")
+                .AppendLine("        SELECT")
+                .AppendLine("            1 AS n")
+                .AppendLine("          , CAST('abc' AS CHAR(20)) AS str")
+                .AppendLine("        UNION ALL")
+                .AppendLine("        SELECT")
+                .AppendLine("            n + 1")
+                .AppendLine("          , CONCAT(str, str)")
+                .AppendLine("        FROM")
+                .AppendLine("            cte")
+                .AppendLine("        WHERE")
+                .AppendLine("            n < @c_0_1_w_0")
+                .AppendLine("    )")
+                .AppendLine("SELECT")
+                .AppendLine("    *")
+                .AppendLine("FROM")
+                .Append("    cte");
+
+            queryBuilder.Build(_select);
+
+            string expectedQuery = _expectedQueryBuilder.ToString();
+
+            string actualQuery = queryBuilder.GetQuery();
+
+            var parameters = queryBuilder.GetParameters();
+
+            Assert.Equal(expectedQuery, actualQuery);
+
+            Assert.NotEmpty(parameters);
+
+            Assert.Equal(1, parameters.Count);
+
+            Assert.Equal("@c_0_1_w_0", parameters[0].ParameterName);
+            Assert.Equal(DbType.Int32, parameters[0].DbType);
+            Assert.Equal(3, parameters[0].Value);
+        }
+
+        #endregion
     }
 }

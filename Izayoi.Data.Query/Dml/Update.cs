@@ -21,6 +21,8 @@ namespace Izayoi.Data.Query
 
         private readonly Wheres _wheres;
 
+        private readonly With _with;
+
         #endregion
 
         #region Constructors
@@ -35,6 +37,8 @@ namespace Izayoi.Data.Query
             _sets = new Sets();
 
             _wheres = new Wheres(1);
+
+            _with = new With();
         }
 
         /// <summary>
@@ -48,6 +52,8 @@ namespace Izayoi.Data.Query
             _sets = new Sets();
 
             _wheres = new Wheres(1);
+
+            _with = new With();
         }
 
         /// <summary>
@@ -62,6 +68,8 @@ namespace Izayoi.Data.Query
             _sets = new Sets();
 
             _wheres = new Wheres(1);
+
+            _with = new With();
         }
 
         /// <summary>
@@ -77,6 +85,8 @@ namespace Izayoi.Data.Query
             _sets = new Sets();
 
             _wheres = new Wheres(1);
+
+            _with = new With();
         }
 
         #endregion
@@ -99,6 +109,9 @@ namespace Izayoi.Data.Query
 
         /// <summary>WHERE clause</summary>
         public Wheres Wheres => _wheres;
+
+        /// <summary>With clause</summary>
+        public With With => _with;
 
         #endregion
 
@@ -649,6 +662,24 @@ namespace Izayoi.Data.Query
         public Update ClearWhere()
         {
             _wheres.Clear();
+
+            return this;
+        }
+
+        #endregion
+
+        #region With Methods
+
+        public Update SetWith(bool recursive)
+        {
+            _with.SetRecursive(recursive);
+
+            return this;
+        }
+
+        public Update ClearWith()
+        {
+            _with.Clear();
 
             return this;
         }
