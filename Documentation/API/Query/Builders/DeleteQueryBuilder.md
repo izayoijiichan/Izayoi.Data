@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Query|
 |Assembly|Izayoi.Data.Query.dll|
 
@@ -25,7 +25,7 @@ IDeleteQueryBuilder
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |DeleteQueryBuilder()|Initializes an instance of the DeleteQueryBuilder class.|
 |DeleteQueryBuilder(QueryOption queryOption)|Initializes a new instance of the DeleteQueryBuilder class the specified queryOption.|
 |DeleteQueryBuilder(QueryOption queryOption, StringBuilder stringBuilder, BindParameterCollection bindParameters)|Initializes an instance of the DeleteQueryBuilder class with the specified queryOption, stringBuilder and bindParameters.|
@@ -43,7 +43,7 @@ Gets the bind parameters.
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |Build(in Delete delete)|bool|Builds the specified [delete](../Dml/Delete.md).|
 |Clean()|bool|Clear the query and parameters.|
 |GetQuery()|string|Get the query.|
@@ -52,5 +52,6 @@ Gets the bind parameters.
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

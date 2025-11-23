@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.TimestampedObjects|
 |Assembly|Izayoi.Data.TimestampedObjects.dll|
 
@@ -27,7 +27,7 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |UncomparableTimestampedClass&lt;TValue&gt;()|Initializes an instance of the UncomparableTimestampedClass&lt;TValue&gt; class.|
 |UncomparableTimestampedClass&lt;TValue&gt;(in long timestamp, in TValue? value)|Initializes an instance of the UncomparableTimestampedClass&lt;TValue&gt; class to the specified timestamp and value.|
 |UncomparableTimestampedClass&lt;TValue&gt;(in TValue? value)|Initializes an instance of the UncomparableTimestampedClass&lt;TValue&gt; class to the specified value.|
@@ -35,14 +35,14 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Properties
 
 |Name|Type|Summary|
-|--|--|--|
+|---|---|---|
 |Timestamp|long|Gets Unix timestamp milliseconds.|
 |Value|TValue?|Gets the value of the current object if it has been assigned a valid underlying value.|
 
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |Deconstruct(out long timestamp, out TValue value)|void|Deconstructs this UncomparableTimestampedClass&lt;TValue&gt; instance by timestamp and value.|
 |Equals(UncomparableTimestampedClass&lt;TValue&gt;? other)|bool|Indicates whether the current UncomparableTimestampedClass&lt;TValue&gt; object is equal to a specified UncomparableTimestampedClass&lt;TValue&gt;.|
 |Equals(IUncomparableTimestampedClass&lt;TValue&gt;? other)|bool|Indicates whether the current UncomparableTimestampedClass&lt;TValue&gt; object is equal to a specified IUncomparableTimestampedClass&lt;TValue&gt;.|
@@ -53,7 +53,7 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Operators
 
 |Operator|Returns|Left|Right|
-|--|--|--|--|
+|---|---|---|---|
 |==|bool|UncomparableTimestampedClass&lt;TValue&gt;|UncomparableTimestampedClass&lt;TValue&gt;|
 |!=|bool|UncomparableTimestampedClass&lt;TValue&gt;|UncomparableTimestampedClass&lt;TValue&gt;|
 
@@ -153,6 +153,6 @@ public readonly struct ComparableSample2Class
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
 |.NET Standard|2.0, 2.1|

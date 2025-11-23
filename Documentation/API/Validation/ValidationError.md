@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Validation|
 |Assembly|Izayoi.Data.Validation.dll|
 
@@ -21,7 +21,7 @@ Object -> ValidationError
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |ValidationError(PropertyInfo propertyInfo, DisplayAttribute? displayAttribute, List\<ValidationAttribute> errorValidationAttributes, object? propertyValue)|Initializes a new instance of the ValidationError class.|
 
 ## Properties
@@ -49,12 +49,12 @@ Gets list of the validation attribute that failed validation.
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |ToValidationResults()|List\<ValidationResult>|Converts this ValidationError to list of the ValidationResult.|
 
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
 |.NET Standard|2.0, 2.1|

@@ -1,0 +1,15 @@
+{
+    "name": "Izayoi.Data.Query",
+    "rootNamespace": "Izayoi.Data.Query",
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "autoReferenced": true,
+    "noEngineReferences": true,
+    "overrideReferences": true,
+    "references": [],
+    "precompiledReferences": [],
+    "optionalUnityReferences": [],
+    "defineConstraints": [],
+    "versionDefines": []
+}

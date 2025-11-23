@@ -3,7 +3,7 @@
   "displayName": "Izayoi.Data.Packs",
   "description": "This is a struct pack.",
   "author": "Izayoi Jiichan",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": [
     "nuget",
     "comparable",

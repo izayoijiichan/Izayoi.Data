@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Query|
 |Assembly|Izayoi.Data.Query.dll|
 
@@ -27,7 +27,7 @@ IBindParameterCollection, IDbParameterCollection\<BindParameter>, IEnumerable\<B
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |BindParameterCollection()|Initializes a new instance of the BindParameterCollection class.|
 
 ## Properties
@@ -55,14 +55,14 @@ Specifies the Object to be used to synchronize access to the collection.
 ## Indexers
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |this[int index]|[BindParameter](BindParameter.md)|Gets or sets the parameter at the specified index.|
 |this[string parameterName]|[BindParameter](BindParameter.md)|Gets or sets the parameter at the specified index.|
 
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |Add(BindParameter value)|int|Adds the specified BindParameter object to the DbParameterCollection.|
 |Add(object value)|int|Adds the specified DbParameter object to the DbParameterCollection.|
 |AddRange(Array values)|void|Adds an array of items with the specified values to the DbParameterCollection.|
@@ -92,5 +92,6 @@ Specifies the Object to be used to synchronize access to the collection.
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

@@ -3,7 +3,7 @@
   "displayName": "Izayoi.Data.Comparable",
   "description": "This is a collection of comparable objects.",
   "author": "Izayoi Jiichan",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": [
     "nuget",
     "comparable",
@@ -11,7 +11,7 @@
     "enum",
     "struct"
   ],
-  "unity": "2021.3",
+  "unity": "2022.3",
   "dependencies": {
     "org.nuget.microsoft.bcl.hashcode": "6.0.0"
   }

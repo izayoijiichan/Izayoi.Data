@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Query|
 |Assembly|Izayoi.Data.Query.dll|
 
@@ -21,7 +21,7 @@ Object -> Update
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |Update()|Initializes an instance of the Update class.|
 |Update(string tableName)|Initializes a new instance of the Update class with the specified tableName.|
 |Update(string tableName, string tableAlias)|Initializes an instance of the Update class with the specified tableName and tableAlias.|
@@ -54,7 +54,7 @@ WITH clause
 ## Methods
 
 |Name|Returns|
-|--|--|
+|---|---|
 |SetTable(string tableName)|Update|
 |SetTable(string tableName, string tableAlias)|Update|
 |SetTable(string schemaName, string tableName, string tableAlias)|Update|
@@ -107,5 +107,6 @@ WITH clause
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

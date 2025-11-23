@@ -1,0 +1,17 @@
+{
+    "name": "Izayoi.Data.DbDataMapper",
+    "rootNamespace": "Izayoi.Data.DbDataMapper",
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "autoReferenced": true,
+    "noEngineReferences": true,
+    "overrideReferences": true,
+    "references": [],
+    "precompiledReferences": [
+        "System.ComponentModel.Annotations.dll"
+    ],
+    "optionalUnityReferences": [],
+    "defineConstraints": [],
+    "versionDefines": []
+}

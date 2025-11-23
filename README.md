@@ -2,7 +2,7 @@
 
 This is a database operation support library that includes a fast micro O/R mapper (ORM).
 
-![.net](https://img.shields.io/badge/.NET-8%2c9-2196F3.svg?logo=.net&style=flat)
+![.net](https://img.shields.io/badge/.NET-8%2c9%2c10-2196F3.svg?logo=.net&style=flat)
 ![license](https://img.shields.io/github/license/izayoijiichan/Izayoi.Data)
 [![wiki](https://img.shields.io/badge/GitHub-wiki-181717.svg?logo=github&style=flat)](https://github.com/izayoijiichan/Izayoi.Data/wiki)
 
@@ -33,7 +33,7 @@ It has 9 functions.
 A Database with a package that implements classes that inherit from the `DbCommand` and `DbDataReader` classes.
 
 |Database|NuGet|GitHub|Project|
-|--|--|--|--|
+|---|---|---|---|
 |MySQL|[MySqlConnector](https://www.nuget.org/packages/MySqlConnector/)|[MySqlConnector](https://github.com/mysql-net/MySqlConnector)|[mysqlconnector.net](https://mysqlconnector.net/)|
 |PostgreSQL|[Npgsql](https://www.nuget.org/packages/Npgsql/)|[Npgsql](https://github.com/npgsql/npgsql)|[Npgsql](https://www.npgsql.org/)|
 |SQL Server|[Microsoft.Data.Sqlclient](https://www.nuget.org/packages/Microsoft.Data.Sqlclient/)|-|-|
@@ -42,7 +42,7 @@ A Database with a package that implements classes that inherit from the `DbComma
 ## Installation
 
 |Package Name|NuGet|GitHub|
-|--|--|--|
+|---|---|---|
 |Izayoi.Data.Comparable|[Izayoi.Data.Comparable](https://www.nuget.org/packages/Izayoi.Data.Comparable)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data)|
 |Izayoi.Data.DbCommandAdapter|[Izayoi.Data.DbCommandAdapter](https://www.nuget.org/packages/Izayoi.Data.DbCommandAdapter)|[Izayoi.Data](https://github.com/izayoijiichanIzayoi.Data)|
 |Izayoi.Data.DbDataMapper|[Izayoi.Data.DbDataMapper](https://www.nuget.org/packages/Izayoi.Data.DbDataMapper)|[Izayoi.Data](https://github.com/izayoijiichan/Izayoi.Data)|
@@ -212,8 +212,38 @@ public class UserRepository
 ~~~json
 {
   "dependencies": {
+    "com.izayoi.data.comparable": "1.1.0",
+    "com.izayoi.data.dbcommandadapter": "1.3.0",
+    "com.izayoi.data.dbdatamapper": "1.2.0",
+    "com.izayoi.data.packs": "1.1.0",
+    "com.izayoi.data.query": "1.3.0",
+    "com.izayoi.data.repository": "1.2.0",
+    "com.izayoi.data.timestampedobjects": "1.1.0",
+    "com.izayoi.data.validation": "1.3.0",
+    "org.nuget.microsoft.bcl.hashcode": "6.0.0",
+    "org.nuget.system.componentmodel.annotations": "4.4.0"
+  },
+  "scopedRegistries": [
+    {
+      "name": "OpenUPM",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.izayoi"
+      ]
+    }
+  ]
+}
+~~~
+or
+~~~json
+{
+  "dependencies": {
     "com.izayoi.data.comparable": "https://github.com/izayoijiichan/Izayoi.Data.git?path=Izayoi.Data.Comparable",
+    "com.izayoi.data.dbcommandadapter": "https://github.com/izayoijiichan/Izayoi.Data.git?path=Izayoi.Data.DbCommandAdapter",
+    "com.izayoi.data.dbdatamapper": "https://github.com/izayoijiichan/Izayoi.Data.git?path=Izayoi.Data.DbDataMapper",
     "com.izayoi.data.packs": "https://github.com/izayoijiichan/Izayoi.Data.git?path=Izayoi.Data.Packs",
+    "com.izayoi.data.query": "https://github.com/izayoijiichan/Izayoi.Data.git?path=Izayoi.Data.Query",
+    "com.izayoi.data.repository": "https://github.com/izayoijiichan/Izayoi.Data.git?path=Izayoi.Data.Repository",
     "com.izayoi.data.timestampedobjects": "https://github.com/izayoijiichan/Izayoi.Data.git?path=Izayoi.Data.TimestampedObjects",
     "com.izayoi.data.validation": "https://github.com/izayoijiichan/Izayoi.Data.git?path=Izayoi.Data.Validation",
     "org.nuget.microsoft.bcl.hashcode": "6.0.0",
@@ -222,7 +252,7 @@ public class UserRepository
 }
 ~~~
 ___
-Last updated: 1 February, 2025  
+Last updated: 24 November, 2025  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2024 Izayoi Jiichan. All Rights Reserved.*

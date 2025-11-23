@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data|
 |Assembly|Izayoi.Data.dll|
 
@@ -21,7 +21,7 @@ Object -> DbDataMapperOption
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |DbDataMapperOption()|Initializes an instance of the DbDataMapperOption class.|
 
 ## Properties
@@ -55,5 +55,6 @@ The dafault is `true`;
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

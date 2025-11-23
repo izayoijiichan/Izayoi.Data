@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Query|
 |Assembly|Izayoi.Data.Query.dll|
 
@@ -21,7 +21,7 @@ Object -> Insert
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |Insert()|Initializes an instance of the Insert class.|
 |Insert(string tableName)|Initializes a new instance of the Insert class with the specified tableName.|
 |Insert(string tableName, string tableAlias)|Initializes an instance of the Insert class with the specified tableName and tableAlias.|
@@ -58,7 +58,7 @@ WITH clause
 ## Methods
 
 |Name|Returns|
-|--|--|
+|---|---|
 |SetInto(string tableName)|Insert|
 |SetInto(string tableName, string tableAlias)|Insert|
 |SetInto(string schemaName, string tableName, string tableAlias)|Insert|
@@ -74,5 +74,6 @@ WITH clause
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

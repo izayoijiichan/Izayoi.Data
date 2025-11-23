@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Repository|
 |Assembly|Izayoi.Data.Repository.dll|
 
@@ -31,14 +31,14 @@ Object -> DbRepositoryBase\<TData, TKey>
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |DbRepositoryBase(IDbDataMapper dbDataMapper, QueryOption queryOption)|Initializes a new instance of the DbRepositoryBase class with the specified dbDataMapper and queryOption.|
 |DbRepositoryBase(IDbCommandAdapter dbCommandAdapter)|Initializes a new instance of the DbRepositoryBase class with the specified dbCommandAdapter.|
 
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |GetCountAsync(DbConnection dbConnection, CancellationToken cancellationToken)|Task\<int>|Gets the count of records.|
 |FetchAsync(DbConnection dbConnection, TKey id, CancellationToken cancellationToken)|Task\<TData?>|Gets the data for the specified ID.|
 |FetchAsync(DbConnection dbConnection, IEnumerable\<TKey> ids, CancellationToken cancellationToken)|Task\<List\<TData>>|Gets the data for the specified IDs.|
@@ -208,5 +208,6 @@ public class Example
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

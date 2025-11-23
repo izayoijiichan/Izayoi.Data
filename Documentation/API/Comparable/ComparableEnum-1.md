@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Comparable|
 |Assembly|Izayoi.Data.Comparable.dll|
 
@@ -27,20 +27,20 @@ Object -> ValueType -> [Enum](https://learn.microsoft.com/en-us/dotnet/api/syste
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |ComparableEnum&lt;TEnum&gt;()|Initializes an instance of the ComparableEnum&lt;TEnum&gt; class.|
 |ComparableEnum&lt;TEnum&gt;(in TEnum value)|Initializes an instance of the ComparableEnum&lt;TEnum&gt; class to the specified value.|
 
 ## Properties
 
 |Name|Type|Summary|
-|--|--|--|
+|---|---|---|
 |Value|TEnum|Gets the value of the current ComparableEnum&lt;TEnum&gt; object if it has been assigned a valid underlying value.|
 
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |CompareTo(ComparableEnum&lt;TEnum&gt;? other)|int|Compares this instance to a specified ComparableEnum&lt;TEnum&gt; and returns an indication of their relative values.|
 |CompareTo(object? other)|int|Compares this instance to a specified object and returns an indication of their relative values.|
 |Equals(ComparableEnum&lt;TEnum&gt;? other)|bool|Indicates whether the current ComparableEnum&lt;TEnum&gt; object is equal to a specified ComparableEnum&lt;TEnum&gt;.|
@@ -54,7 +54,7 @@ Object -> ValueType -> [Enum](https://learn.microsoft.com/en-us/dotnet/api/syste
 ## Operators
 
 |Operator|Returns|Left|Right|
-|--|--|--|--|
+|---|---|---|---|
 |==|bool|ComparableEnum&lt;TEnum&gt;|ComparableEnum&lt;TEnum&gt;|
 |!=|bool|ComparableEnum&lt;TEnum&gt;|ComparableEnum&lt;TEnum&gt;|
 |<|bool|ComparableEnum&lt;TEnum&gt;|ComparableEnum&lt;TEnum&gt;|
@@ -63,7 +63,7 @@ Object -> ValueType -> [Enum](https://learn.microsoft.com/en-us/dotnet/api/syste
 |>=|bool|ComparableEnum&lt;TEnum&gt;|ComparableEnum&lt;TEnum&gt;|
 
 |Type|From|To|
-|--|--|--|
+|---|---|---|
 |implicit|TEnum|ComparableEnum&lt;TEnum&gt;|
 |explicit|ComparableEnum&lt;TEnum&gt;|TEnum|
 
@@ -120,6 +120,6 @@ public class Example()
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
 |.NET Standard|2.0, 2.1|

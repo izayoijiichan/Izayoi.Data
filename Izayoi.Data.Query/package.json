@@ -1,0 +1,17 @@
+{
+  "name": "com.izayoi.data.query",
+  "displayName": "Izayoi.Data.Query",
+  "description": "This is a library that supports building query (SQL) to manipulate a database.",
+  "author": "Izayoi Jiichan",
+  "version": "1.3.0",
+  "keywords": [
+    "nuget",
+    "database",
+    "query",
+    "query-builder",
+    "sql",
+    "sql-builder"
+  ],
+  "unity": "2022.3",
+  "dependencies": {}
+}

@@ -5,8 +5,10 @@ This is a library that supports building query (SQL) to manipulate a database.
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|
+|Unity|2021, 2022, 6000|
 
 ## Wiki
 
@@ -495,7 +497,7 @@ static void Main()
             );
 
             select19
-                .SetFrom("cte_users")
+                .SetFrom("cte_users2")
                 .AddField("*");
 
         // query:
@@ -527,7 +529,7 @@ static void Main()
             );
 
             select20
-                .SetFrom("cte_users")
+                .SetFrom("cte")
                 .AddField("*");
 
         // query:
@@ -736,7 +738,7 @@ static void Main()
 ~~~
 
 ___
-Last updated: 22 March, 2025  
+Last updated: 24 November, 2025  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2024 Izayoi Jiichan. All Rights Reserved.*

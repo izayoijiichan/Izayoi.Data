@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Comparable|
 |Assembly|Izayoi.Data.Comparable.dll|
 
@@ -30,20 +30,20 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |ComparableNullable&lt;TValue&gt;(in TValue value)|Initializes an instance of the ComparableNullable&lt;TValue&gt; structure to the specified value.|
 
 ## Properties
 
 |Name|Type|Summary|
-|--|--|--|
+|---|---|---|
 |HasValue|bool|Gets a value indicating whether the current ComparableNullable&lt;TValue&gt; object has a valid value of its underlying type.|
 |Value|TValue|Gets the value of the current ComparableNullable&lt;TValue&gt; object if it has been assigned a valid underlying value.|
 
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |CompareTo(ComparableNullable&lt;TValue&gt; other)|int|Compares this instance to a specified ComparableNullable&lt;TValue&gt; and returns an indication of their relative values.|
 |CompareTo(object? other)|int|Compares this instance to a specified object and returns an indication of their relative values.|
 |Deconstruct(out bool hasValue, out TValue value)|void|Deconstructs this ComparableNullable&lt;TValue&gt; instance by hasValue and value.|
@@ -57,7 +57,7 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Operators
 
 |Operator|Returns|Left|Right|
-|--|--|--|--|
+|---|---|---|---|
 |==|bool|ComparableNullable&lt;TValue&gt;|ComparableNullable&lt;TValue&gt;|
 |!=|bool|ComparableNullable&lt;TValue&gt;|ComparableNullable&lt;TValue&gt;|
 |<|bool|ComparableNullable&lt;TValue&gt;|ComparableNullable&lt;TValue&gt;|
@@ -66,7 +66,7 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 |>=|bool|ComparableNullable&lt;TValue&gt;|ComparableNullable&lt;TValue&gt;|
 
 |Type|From|To|
-|--|--|--|
+|---|---|---|
 |implicit|ComparableNullable&lt;TValue&gt;|System.Nullable&lt;TValue&gt;|
 |implicit|System.Nullable&lt;TValue&gt;|System.Nullable&lt;TValue&gt;|
 |implicit|TValue|ComparableNullable&lt;TValue&gt;|
@@ -167,6 +167,6 @@ public class Example()
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
 |.NET Standard|2.0, 2.1|

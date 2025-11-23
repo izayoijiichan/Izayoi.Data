@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Packs|
 |Assembly|Izayoi.Data.Packs.dll|
 
@@ -38,13 +38,13 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |UncomparableStructPack&lt;TValue1, TValue2, TValue3, TValue4, TValue5&gt;(in TValue1 value1, in TValue2 value2, in TValue3 value3, in TValue4 value4, in TValue5 value5)|Initializes an instance of the UncomparableStructPack&lt;TValue1, TValue2, TValue3, TValue4, TValue5&gt; structure to the specified value.|
 
 ## Properties
 
 |Name|Type|Summary|
-|--|--|--|
+|---|---|---|
 |Value1|TValue1|Gets the value1 of the current object.|
 |Value2|TValue2|Gets the value2 of the current object.|
 |Value3|TValue3|Gets the value3 of the current object.|
@@ -54,7 +54,7 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |Deconstruct(out TValue1 value1, out TValue2 value2)|void|Deconstructs this UncomparableStructPack&lt;TValue1, TValue2, TValue3, TValue4, TValue5&gt; instance by value1 and value2.|
 |Deconstruct(out TValue1 value1, out TValue2 value2, out TValue3 value3)|void|Deconstructs this UncomparableStructPack&lt;TValue1, TValue2, TValue3, TValue4, TValue5&gt; instance by value1, value2 and value3.|
 |Deconstruct(out TValue1 value1, out TValue2 value2, out TValue3 value3, out TValue4 value4)|void|Deconstructs this UncomparableStructPack&lt;TValue1, TValue2, TValue3, TValue4, TValue5&gt; instance by value1, value2, value3 and value4.|
@@ -67,7 +67,7 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Operators
 
 |Operator|Returns|Left|Right|
-|--|--|--|--|
+|---|---|---|---|
 |==|bool|UncomparableStructPack&lt;TValue1, TValue2, TValue3, TValue4, TValue5&gt;|UncomparableStructPack&lt;TValue1, TValue2, TValue3, TValue4, TValue5&gt;|
 |!=|bool|UncomparableStructPack&lt;TValue1, TValue2, TValue3, TValue4, TValue5&gt;|UncomparableStructPack&lt;TValue1, TValue2, TValue3, TValue4, TValue5&gt;|
 
@@ -112,6 +112,6 @@ public class Example()
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
 |.NET Standard|2.0, 2.1|

@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.TimestampedObjects|
 |Assembly|Izayoi.Data.TimestampedObjects.dll|
 
@@ -28,7 +28,7 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |TimestampedString(in long timestamp, in string? value)|Initializes an instance of the TimestampedString structure to the specified timestamp and value.|
 |TimestampedString(in long timestamp, in char c, in int count)|Initializes an instance of the TimestampedString structure to the specified timestamp, c and count.|
 |TimestampedString(in long timestamp, in char[] value)|Initializes an instance of the TimestampedString structure to the specified timestamp and value.|
@@ -43,14 +43,14 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Properties
 
 |Name|Type|Summary|
-|--|--|--|
+|---|---|---|
 |Timestamp|long|Gets Unix timestamp milliseconds.|
 |Value|string?|Gets the string value of the current object.|
 
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |CompareTo(TimestampedString other)|int|Compares this instance to a specified TimestampedString and returns an indication of their relative values.|
 |CompareTo(ComparableTimestampedClass&lt;string&gt;? other)|int|Compares this instance to a specified ComparableTimestampedClass&lt;string&gt; and returns an indication of their relative values.|
 |CompareTo(object? other)|int|Compares this instance to a specified object and returns an indication of their relative values.|
@@ -64,7 +64,7 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Operators
 
 |Operator|Returns|Left|Right|
-|--|--|--|--|
+|---|---|---|---|
 |==|bool|TimestampedString|TimestampedString|
 |!=|bool|TimestampedString|TimestampedString|
 |<|bool|TimestampedString|TimestampedString|
@@ -73,7 +73,7 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 |>=|bool|TimestampedString|TimestampedString|
 
 |Type|From|To|
-|--|--|--|
+|---|---|---|
 |implicit|TimestampedString|ComparableTimestampedClass&lt;string&gt;|
 |implicit|ComparableTimestampedClass&lt;string&gt;|TimestampedString|
 
@@ -212,6 +212,6 @@ public class Example()
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
 |.NET Standard|2.0, 2.1|

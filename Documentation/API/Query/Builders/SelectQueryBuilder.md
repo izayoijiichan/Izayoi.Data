@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Query|
 |Assembly|Izayoi.Data.Query.dll|
 
@@ -25,7 +25,7 @@ ISelectQueryBuilder
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |SelectQueryBuilder()|Initializes an instance of the SelectQueryBuilder class.|
 |SelectQueryBuilder(QueryOption queryOption)|Initializes a new instance of the SelectQueryBuilder class the specified queryOption.|
 |SelectQueryBuilder(QueryOption queryOption, StringBuilder stringBuilder, BindParameterCollection bindParameters)|Initializes an instance of the SelectQueryBuilder class with the specified queryOption, stringBuilder and bindParameters.|
@@ -43,7 +43,7 @@ Gets the bind parameters.
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |Build(in Select Select)|bool|Builds the specified [Select](../Dml/Select.md).|
 |Clean()|bool|Clear the query and parameters.|
 |GetQuery()|string|Get the query.|
@@ -52,5 +52,6 @@ Gets the bind parameters.
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

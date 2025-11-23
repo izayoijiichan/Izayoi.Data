@@ -5,7 +5,7 @@ This is a collection of comparable objects.
 ## Structures
 
 |Structure|Remarks|
-|--|--|
+|---|---|
 |ComparableEnum&lt;TEnum&gt;|A comparable enumulation.|
 |ComparableNullable&lt;TValue&gt;|A comparable nullable value.|
 
@@ -162,8 +162,8 @@ These are mainly used as generic parameters for `ComparableStructPack<TValue1, .
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
 |.NET Standard|2.0, 2.1|
 |Unity|2021, 2022, 6000|
 
@@ -172,7 +172,7 @@ These are mainly used as generic parameters for `ComparableStructPack<TValue1, .
 [Wiki](https://github.com/izayoijiichan/Izayoi.Data/wiki)
 
 ___
-Last updated: 1 February, 2025  
+Last updated: 24 November, 2025  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2025 Izayoi Jiichan. All Rights Reserved.*

@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Query|
 |Assembly|Izayoi.Data.Query.dll|
 
@@ -25,7 +25,7 @@ IDbParameter, IDbDataParameter, IDataParameter
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |BindParameter()|Initializes a new instance of the BindParameter class.|
 |BindParameter(string parameterName, object value)|Initializes a new instance of the BindParameter class with the specified parameterName and value.|
 |BindParameter(string parameterName, object value, DbType dbType)|Initializes a new instance of the BindParameter class with the specified parameterName, value and dbType.|
@@ -80,11 +80,12 @@ Gets or sets the value of the parameter.
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |ResetDbType()|void|Resets the DbType property to its original settings.|
 
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Query|
 |Assembly|Izayoi.Data.Query.dll|
 
@@ -21,7 +21,7 @@ Object -> QueryOption
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |QueryOption()|Initializes an instance of the QueryOption class.|
 |QueryOption(RdbKind rdbKind)|Initializes a new instance of the QueryOption class with the specified rdbKind.|
 |QueryOption(RdbKind rdbKind, int rdbVersion)|Initializes a new instance of the QueryOption class with the specified rdbKind and rdbVersion.|
@@ -106,5 +106,6 @@ static void Main()
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

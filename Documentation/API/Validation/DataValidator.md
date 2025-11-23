@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Validation|
 |Assembly|Izayoi.Data.Validation.dll|
 
@@ -21,13 +21,13 @@ Object -> DataValidator
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |DataValidator()|Initializes an instance of the DataValidator class.|
 
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |TryValidateErrors(in object instance, out List\<ValidationError> validationErrors)|bool|Attempts to validate the property values of the specified instance.|
 |TryValidateErrorsRef(in object instance, ref List\<ValidationError> validationErrors)|bool|Attempts to validate the property values of the specified instance.|
 |TryValidateErrorsRef(in object instance, in bool breakOnFirstPropertyError, in bool breakOnPerFirstPropertyError, ref List\<ValidationError> validationErrors)|bool|Attempts to validate the property values of the specified instance.|
@@ -108,7 +108,7 @@ public class Example()
 DataAnnotations.resx
 
 |name|value|
-|--|--|
+|---|---|
 |RangeAttribute_ValidationError|The field {0} must be between {1} and {2}.|
 |StringLengthAttribute_ValidationError|The field {0} must be a string with a maximum length of {1}.|
 |RequiredAttribute_ValidationError|The {0} field is required.|
@@ -116,7 +116,7 @@ DataAnnotations.resx
 Models.resx
 
 |name|value|
-|--|--|
+|---|---|
 |User_Age|Age|
 |User_Id|User ID|
 |User_Name|Username|
@@ -185,6 +185,6 @@ public class Example()
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
 |.NET Standard|2.0, 2.1|

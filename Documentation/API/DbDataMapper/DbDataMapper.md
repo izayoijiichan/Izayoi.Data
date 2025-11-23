@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data|
 |Assembly|Izayoi.Data.DbDataMapper.dll|
 
@@ -21,7 +21,7 @@ Object -> DbDataMapper
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |DbDataMapper()|Initializes an instance of the DbDataMapper class.|
 |DbDataMapper(DbDataMapperOption option)|Initializes an instance of the DbDataMapper class with the specified option.|
 
@@ -34,7 +34,7 @@ Gets the DB data mapper option.
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |ReadToObjectAsync\<T>(DbDataReader dbDataReader, CancellationToken cancellationToken)|Task\<T?>|Gets the first record from the DB data reader's record set, sets the values for the specified T class, and returns it.|
 |ReadToObjectsAsync\<T>(DbDataReader dbDataReader, CancellationToken cancellationToken)|Task\<List\<T>>|Gets the records from the DB data reader's record set, sets the values for the specified T class, and returns it.|
 |ExecuteQueryAsync\<T>(DbCommand dbCommand, CancellationToken cancellationToken)|Task\<List\<T>>|Executes a DB command and returns the record set in an object.|
@@ -165,7 +165,7 @@ public class Example()
 A Database with a package that implements classes that inherit from the `DbCommand` and `DbDataReader` classes.
 
 |Database|NuGet|GitHub|Project|
-|--|--|--|--|
+|---|---|---|---|
 |MySQL|[MySqlConnector](https://www.nuget.org/packages/MySqlConnector/)|[MySqlConnector](https://github.com/mysql-net/MySqlConnector)|[mysqlconnector.net](https://mysqlconnector.net/)|
 |PostgreSQL|[Npgsql](https://www.nuget.org/packages/Npgsql/)|[Npgsql](https://github.com/npgsql/npgsql)|[Npgsql](https://www.npgsql.org/)|
 |SQL Server|[Microsoft.Data.Sqlclient](https://www.nuget.org/packages/Microsoft.Data.Sqlclient/)|-|-|
@@ -174,5 +174,6 @@ A Database with a package that implements classes that inherit from the `DbComma
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

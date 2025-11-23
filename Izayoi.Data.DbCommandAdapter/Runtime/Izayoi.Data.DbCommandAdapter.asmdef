@@ -1,0 +1,20 @@
+{
+    "name": "Izayoi.Data.DbCommandAdapter",
+    "rootNamespace": "Izayoi.Data.DbCommandAdapter",
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "autoReferenced": true,
+    "noEngineReferences": true,
+    "overrideReferences": true,
+    "references": [
+        "Izayoi.Data.DbDataMapper",
+        "Izayoi.Data.Query"
+    ],
+    "precompiledReferences": [
+        "System.ComponentModel.Annotations.dll"
+    ],
+    "optionalUnityReferences": [],
+    "defineConstraints": [],
+    "versionDefines": []
+}

@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Query|
 |Assembly|Izayoi.Data.Query.dll|
 
@@ -21,7 +21,7 @@ Object -> Select
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |Select()|Initializes an instance of the Select class.|
 
 ## Properties
@@ -83,7 +83,7 @@ WITH clause
 ## Methods
 
 |Name|Returns|
-|--|--|
+|---|---|
 |Clear()|Select|
 |SetType(SType type)|Select|
 |SetFrom(string tableName)|Select|
@@ -176,5 +176,6 @@ WITH clause
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

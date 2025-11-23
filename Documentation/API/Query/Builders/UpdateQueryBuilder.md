@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Query|
 |Assembly|Izayoi.Data.Query.dll|
 
@@ -25,7 +25,7 @@ IUpdateQueryBuilder
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |UpdateQueryBuilder()|Initializes an instance of the UpdateQueryBuilder class.|
 |UpdateQueryBuilder(QueryOption queryOption)|Initializes a new instance of the UpdateQueryBuilder class the specified queryOption.|
 |UpdateQueryBuilder(QueryOption queryOption, StringBuilder stringBuilder, BindParameterCollection bindParameters)|Initializes an instance of the UpdateQueryBuilder class with the specified queryOption, stringBuilder and bindParameters.|
@@ -43,7 +43,7 @@ Gets the bind parameters.
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |Build(in Update Update)|bool|Builds the specified [Update](../Dml/Update.md).|
 |Clean()|bool|Clear the query and parameters.|
 |GetQuery()|string|Get the query.|
@@ -52,5 +52,6 @@ Gets the bind parameters.
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

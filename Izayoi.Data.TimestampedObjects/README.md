@@ -5,7 +5,7 @@ This is timestamped objects.
 ## Definition
 
 |Class/Structure|Cateogory|Remarks|
-|--|--|--|
+|---|---|---|
 |ComparableTimestampedStruct&lt;TValue&gt;|comparable|A comparable timestamped structure that can be assigned comparable structure.|
 |ComparableTimestampedClass&lt;TValue&gt;|comparable|A comparable timestamped class that can be assigned comparable class.|
 |ComparableTimestampedObject&lt;TValue&gt;|comparable|A comparable timestamped class that can be assigned comparable object.|
@@ -329,8 +329,8 @@ public class Example
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
 |.NET Standard|2.0, 2.1|
 |Unity|2021, 2022, 6000|
 
@@ -339,7 +339,7 @@ public class Example
 [Wiki](https://github.com/izayoijiichan/Izayoi.Data/wiki)
 
 ___
-Last updated: 1 February, 2025  
+Last updated: 24 November, 2025  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2025 Izayoi Jiichan. All Rights Reserved.*

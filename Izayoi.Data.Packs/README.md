@@ -5,7 +5,7 @@ This is a struct pack.
 ## Structures
 
 |Structure|Cateogory|Remarks|
-|--|--|--|
+|---|---|---|
 |ComparableStructPack&lt;TValue1, TValue2&gt;|comparable|A comparable struct pack.|
 |ComparableStructPack&lt;TValue1, TValue2, TValue3&gt;|comparable|A comparable struct pack.|
 |ComparableStructPack&lt;TValue1, TValue2, TValue3, TValue4&gt;|comparable|A comparable struct pack.|
@@ -263,7 +263,7 @@ public readonly struct UncomparableSample2Struct
 ## Applies to
 
 |Product|Versions|
-|--|--|
+|---|---|
 |.NET|8, 9|
 |.NET Standard|2.0, 2.1|
 |Unity|2021, 2022, 6000|
@@ -273,7 +273,7 @@ public readonly struct UncomparableSample2Struct
 [Wiki](https://github.com/izayoijiichan/Izayoi.Data/wiki)
 
 ___
-Last updated: 1 February, 2025  
+Last updated: 24 November, 2025  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2025 Izayoi Jiichan. All Rights Reserved.*

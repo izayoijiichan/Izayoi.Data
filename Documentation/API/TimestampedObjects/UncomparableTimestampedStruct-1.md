@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.TimestampedObjects|
 |Assembly|Izayoi.Data.TimestampedObjects.dll|
 
@@ -27,21 +27,21 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |UncomparableTimestampedStruct&lt;TValue&gt;(in long timestamp, in TValue value)|Initializes an instance of the UncomparableTimestampedStruct&lt;TValue&gt; structure to the specified timestamp and value.|
 |UncomparableTimestampedStruct&lt;TValue&gt;(in TValue value)|Initializes an instance of the UncomparableTimestampedStruct&lt;TValue&gt; structure to the specified value.|
 
 ## Properties
 
 |Name|Type|Summary|
-|--|--|--|
+|---|---|---|
 |Timestamp|long|Gets Unix timestamp milliseconds.|
 |Value|TValue|Gets the value of the current object if it has been assigned a valid underlying value.|
 
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |Deconstruct(out long timestamp, out TValue value)|void|Deconstructs this UncomparableTimestampedStruct&lt;TValue&gt; instance by timestamp and value.|
 |Equals(UncomparableTimestampedStruct&lt;TValue&gt; other)|bool|Indicates whether the current UncomparableTimestampedStruct&lt;TValue&gt; object is equal to a specified UncomparableTimestampedStruct&lt;TValue&gt;.|
 |Equals(IUncomparableTimestampedStruct&lt;TValue&gt;? other)|bool|Indicates whether the current UncomparableTimestampedStruct&lt;TValue&gt; object is equal to a specified IUncomparableTimestampedStruct&lt;TValue&gt;.|
@@ -52,7 +52,7 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Operators
 
 |Operator|Returns|Left|Right|
-|--|--|--|--|
+|---|---|---|---|
 |==|bool|UncomparableTimestampedStruct&lt;TValue&gt;|UncomparableTimestampedStruct&lt;TValue&gt;|
 |!=|bool|UncomparableTimestampedStruct&lt;TValue&gt;|UncomparableTimestampedStruct&lt;TValue&gt;|
 
@@ -145,6 +145,6 @@ public readonly struct UncomparableSample2Struct
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
 |.NET Standard|2.0, 2.1|

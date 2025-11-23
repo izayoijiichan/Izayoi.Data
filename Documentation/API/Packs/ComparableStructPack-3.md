@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Packs|
 |Assembly|Izayoi.Data.Packs.dll|
 
@@ -37,13 +37,13 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |ComparableStructPack&lt;TValue1, TValue2, TValue3&gt;(in TValue1 value1, in TValue2 value2, in TValue3 value3)|Initializes an instance of the ComparableStructPack&lt;TValue1, TValue2, TValue3&gt; structure to the specified value.|
 
 ## Properties
 
 |Name|Type|Summary|
-|--|--|--|
+|---|---|---|
 |Value1|TValue1|Gets the value1 of the current object.|
 |Value2|TValue2|Gets the value2 of the current object.|
 |Value3|TValue3|Gets the value3 of the current object.|
@@ -51,7 +51,7 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |CompareTo(ComparableStructPack&lt;TValue1, TValue2, TValue3&gt; other)|int|Compares this instance to a specified ComparableStructPack&lt;TValue1, TValue2, TValue3&gt; and returns an indication of their relative values.|
 |CompareTo(IComparableStructPack&lt;TValue1, TValue2, TValue3&gt; other)|int|Compares this instance to a specified IComparableStructPack&lt;TValue1, TValue2, TValue3&gt; and returns an indication of their relative values.|
 |CompareTo(object? other)|int|Compares this instance to a specified object and returns an indication of their relative values.|
@@ -68,7 +68,7 @@ Object -> [ValueType](https://learn.microsoft.com/en-us/dotnet/api/system.valuet
 ## Operators
 
 |Operator|Returns|Left|Right|
-|--|--|--|--|
+|---|---|---|---|
 |==|bool|ComparableStructPack&lt;TValue1, TValue2, TValue3&gt;|ComparableStructPack&lt;TValue1, TValue2, TValue3&gt;|
 |!=|bool|ComparableStructPack&lt;TValue1, TValue2, TValue3&gt;|ComparableStructPack&lt;TValue1, TValue2, TValue3&gt;|
 |<|bool|ComparableStructPack&lt;TValue1, TValue2, TValue3&gt;|ComparableStructPack&lt;TValue1, TValue2, TValue3&gt;|
@@ -136,6 +136,6 @@ public class Example()
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
 |.NET Standard|2.0, 2.1|

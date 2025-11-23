@@ -1,0 +1,16 @@
+﻿<Solution>
+  <Project Path="..\Izayoi.Data.Comparable\Runtime\Izayoi.Data.Comparable.csproj" />
+  <Project Path="..\Izayoi.Data.Comparable.Test\Izayoi.Data.Comparable.Test.csproj" />
+  <Project Path="..\Izayoi.Data.DbCommandAdapter\Runtime\Izayoi.Data.DbCommandAdapter.csproj" />
+  <Project Path="..\Izayoi.Data.DbDataMapper\Runtime\Izayoi.Data.DbDataMapper.csproj" />
+  <Project Path="..\Izayoi.Data.Packs\Runtime\Izayoi.Data.Packs.csproj" />
+  <Project Path="..\Izayoi.Data.Packs.Test\Izayoi.Data.Packs.Test.csproj" />
+  <Project Path="..\Izayoi.Data.Query\Runtime\Izayoi.Data.Query.csproj" />
+  <Project Path="..\Izayoi.Data.Query.Test\Izayoi.Data.Query.Test.csproj" />
+  <Project Path="..\Izayoi.Data.Repository\Runtime\Izayoi.Data.Repository.csproj" />
+  <Project Path="..\Izayoi.Data.Test\Izayoi.Data.Test.csproj" />
+  <Project Path="..\Izayoi.Data.TimestampedObjects\Runtime\Izayoi.Data.TimestampedObjects.csproj" />
+  <Project Path="..\Izayoi.Data.TimestampedObjects.Test\Izayoi.Data.TimestampedObjects.Test.csproj" />
+  <Project Path="..\Izayoi.Data.Validation\Runtime\Izayoi.Data.Validation.csproj" />
+  <Project Path="..\Izayoi.Data.Validation.Test\Izayoi.Data.Validation.Test.csproj" />
+</Solution>

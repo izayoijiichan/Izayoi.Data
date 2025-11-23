@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data|
 |Assembly|Izayoi.Data.DbCommandAdapter.dll|
 
@@ -21,7 +21,7 @@ Object -> DbCommandAdapter
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |DbCommandAdapter(IDbDataMapper dbDataMapper)|Initializes a new instance of the DbCommandAdapter class with the specified dbDataMapper.|
 |DbCommandAdapter(IDbDataMapper dbDataMapper, QueryOption queryOption)|Initializes a new instance of the DbCommandAdapter class with the specified dbDataMapper and queryOption.|
 
@@ -38,7 +38,7 @@ Gets the query option.
 ## Methods (Build Command)
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |BuildDeleteCommand(DbCommand dbCommand, Delete delete)|bool|Builds a DELETE query for the specified DB command using specified delete source.|
 |BuildDeleteCommand\<T>(DbCommand dbCommand, T data)|bool|Builds a DELETE query for the specified DB command using specified data.|
 |BuildInsertCommand(DbCommand dbCommand, Insert insert)|bool|Builds an INSERT query for the specified DB command using specified insert source.|
@@ -50,7 +50,7 @@ Gets the query option.
 ## Methods (Execute)
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |ExecuteQueryAsync\<T>(DbCommand dbCommand, CancellationToken cancellationToken)|Task\<List\<T>>|Executes specified DB command, and returns the records.|
 |ExecuteScalar\<T>(DbCommand dbCommand)|T?|Executes specified DB command, and returns the first columns of the first row in the first returned result set.|
 |ExecuteScalarAsync\<T>(DbCommand dbCommand, CancellationToken cancellationToken)|Task\<T?>|Executes specified DB command, and returns the first columns of the first row in the first returned result set.|
@@ -59,14 +59,14 @@ Gets the query option.
 ## Methods (Select)
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |SelectAllAsync\<T>(DbCommand dbCommand, CancellationToken cancellationToken)|Task\<List\<T>>|Executes a SELECT ALL query for the specified DB command, and returns the records.|
 |SelectAsync\<T>(DbCommand dbCommand, Select select, CancellationToken cancellationToken)|Task\<List\<T>>|Executes a SELECT query for the specified DB command using specified select source, and returns the records.|
 
 ## Methods (Insert)
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |InsertAsync\<T>(DbCommand dbCommand, T data, CancellationToken cancellationToken)|Task\<int>|Executes an INSERT query for the specified DB command using specified data.|
 |InsertAsync\<T>(DbCommand dbCommand, T data, bool excludeKey, CancellationToken cancellationToken)|Task\<int>|Executes an INSERT query for the specified DB command using specified data.|
 |InsertAsync(DbCommand dbCommand, Insert insert, CancellationToken cancellationToken)|Task\<int>|Builds an INSERT query for the specified DB command using specified insert source.|
@@ -79,7 +79,7 @@ Gets the query option.
 ## Methods (Update)
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |UpdateAsync(DbCommand dbCommand, Update update, CancellationToken cancellationToken)|Task\<int>|Executes an UPDATE query for the specified DB command using specified update source.|
 |UpdateAsync\<T>(DbCommand dbCommand, T data, CancellationToken cancellationToken)|Task\<int>|Executes an UPDATE query for the specified DB command using specified data.|
 |UpdateAsync\<T>(DbCommand dbCommand, T data, string[] excludeColumns, CancellationToken cancellationToken)|Task\<int>|Executes an UPDATE query for the specified DB command using specified data.|
@@ -87,7 +87,7 @@ Gets the query option.
 ## Methods (Delete)
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |DeleteAsync(DbCommand dbCommand, Delete delete, CancellationToken cancellationToken)|Task\<int>|Executes a DELETE query for the specified DB command using specified delete source.|
 |DeleteAsync\<T>(DbCommand dbCommand, T data, CancellationToken cancellationToken)|Task\<int>|Executes a DELETE query for the specified DB command using specified data.|
 
@@ -518,5 +518,6 @@ public class PostRepository
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

@@ -7,7 +7,7 @@ This is a fast micro O/R mapper (ORM) that stores data retrieved from a DB into 
 A Database with a package that implements classes that inherit from the `DbCommand` and `DbDataReader` classes.
 
 |Database|NuGet|GitHub|Project|
-|--|--|--|--|
+|---|---|---|---|
 |MySQL|[MySqlConnector](https://www.nuget.org/packages/MySqlConnector/)|[MySqlConnector](https://github.com/mysql-net/MySqlConnector)|[mysqlconnector.net](https://mysqlconnector.net/)|
 |PostgreSQL|[Npgsql](https://www.nuget.org/packages/Npgsql/)|[Npgsql](https://github.com/npgsql/npgsql)|[Npgsql](https://www.npgsql.org/)|
 |SQL Server|[Microsoft.Data.Sqlclient](https://www.nuget.org/packages/Microsoft.Data.Sqlclient/)|-|-|
@@ -16,8 +16,10 @@ A Database with a package that implements classes that inherit from the `DbComma
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|
+|Unity|2021, 2022, 6000|
 
 ## Wiki
 
@@ -140,7 +142,7 @@ Reuse a `DbDataMapper` object whenever possible.
 This library really shines when used in conjunction with the `Izayoi.Data.DbCommandAdapter`.
 
 ___
-Last updated: 5 January, 2025  
+Last updated: 24 November, 2025  
 Editor: Izayoi Jiichan
 
 *Copyright (C) 2024 Izayoi Jiichan. All Rights Reserved.*

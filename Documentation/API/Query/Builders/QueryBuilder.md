@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Query|
 |Assembly|Izayoi.Data.Query.dll|
 
@@ -29,7 +29,7 @@ IUpdateQueryBuilder
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |QueryBuilder()|Initializes an instance of the QueryBuilder class.|
 |QueryBuilder(QueryOption queryOption)|Initializes a new instance of the QueryBuilder class the specified queryOption.|
 
@@ -47,7 +47,7 @@ Gets the bind parameters.
 ## Methods
 
 |Name|Returns|Summary|
-|--|--|--|
+|---|---|---|
 |Build(in Delete delete)|bool|Builds the specified [delete](../Dml/Delete.md).|
 |Build(in Insert insert)|bool|Builds the specified [insert](../Dml/Insert.md).|
 |Build(in Select select)|bool|Builds the specified [select](../Dml/Select.md).|
@@ -673,5 +673,6 @@ Gets the bind parameters.
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

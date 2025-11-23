@@ -1,0 +1,21 @@
+{
+    "name": "Izayoi.Data.Repository",
+    "rootNamespace": "Izayoi.Data.Repository",
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "autoReferenced": true,
+    "noEngineReferences": true,
+    "overrideReferences": true,
+    "references": [
+        "Izayoi.Data.DbCommandAdapter",
+        "Izayoi.Data.DbDataMapper",
+        "Izayoi.Data.Query"
+    ],
+    "precompiledReferences": [
+        "System.ComponentModel.Annotations.dll"
+    ],
+    "optionalUnityReferences": [],
+    "defineConstraints": [],
+    "versionDefines": []
+}

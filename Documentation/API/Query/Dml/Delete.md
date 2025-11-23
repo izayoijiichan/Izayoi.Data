@@ -5,7 +5,7 @@
 ## Definition
 
 |||
-|--|--|
+|---|---|
 |Namespace|Izayoi.Data.Query|
 |Assembly|Izayoi.Data.Query.dll|
 
@@ -21,7 +21,7 @@ Object -> Delete
 ## Constructors
 
 |Name|Summary|
-|--|--|
+|---|---|
 |Delete()|Initializes an instance of the Delete class.|
 |Delete(string tableName)|Initializes a new instance of the Delete class with the specified tableName.|
 |Delete(string tableName, string tableAlias)|Initializes an instance of the Delete class with the specified tableName and tableAlias.|
@@ -44,7 +44,7 @@ WITH clause
 ## Methods
 
 |Name|Returns|
-|--|--|
+|---|---|
 |SetFrom(string tableName)|Delete|
 |SetFrom(string tableName, string tableAlias)|Delete|
 |SetFrom(string schemaName, string tableName, string tableAlias)|Delete|
@@ -84,5 +84,6 @@ WITH clause
 ## Applies to
 
 |Product|Versions|
-|--|--|
-|.NET|8, 9|
+|---|---|
+|.NET|8, 9, 10|
+|.NET Standard|2.1|

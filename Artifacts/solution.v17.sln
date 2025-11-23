@@ -7,19 +7,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Izayoi.Data.Comparable", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Izayoi.Data.Comparable.Test", "..\Izayoi.Data.Comparable.Test\Izayoi.Data.Comparable.Test.csproj", "{18DDBBDF-6724-4121-B207-A4BB5D4707D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Izayoi.Data.DbCommandAdapter", "..\Izayoi.Data.DbCommandAdapter\Izayoi.Data.DbCommandAdapter.csproj", "{8D715A5E-A2CD-418B-A42D-ACF019CBB2C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Izayoi.Data.DbCommandAdapter", "..\Izayoi.Data.DbCommandAdapter\Runtime\Izayoi.Data.DbCommandAdapter.csproj", "{8D715A5E-A2CD-418B-A42D-ACF019CBB2C6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Izayoi.Data.DbDataMapper", "..\Izayoi.Data.DbDataMapper\Izayoi.Data.DbDataMapper.csproj", "{9C726498-099C-4BBC-B09E-BB5200725FFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Izayoi.Data.DbDataMapper", "..\Izayoi.Data.DbDataMapper\Runtime\Izayoi.Data.DbDataMapper.csproj", "{9C726498-099C-4BBC-B09E-BB5200725FFA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Izayoi.Data.Packs", "..\Izayoi.Data.Packs\Runtime\Izayoi.Data.Packs.csproj", "{5FC7452B-FFFD-4C87-B108-8D5CE7A435F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Izayoi.Data.Packs.Test", "..\Izayoi.Data.Packs.Test\Izayoi.Data.Packs.Test.csproj", "{CB72D481-AFE7-49C7-BD2A-DC34BEBF9055}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Izayoi.Data.Query", "..\Izayoi.Data.Query\Izayoi.Data.Query.csproj", "{47C0A5DD-9008-4976-8B37-9CCBF732C2AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Izayoi.Data.Query", "..\Izayoi.Data.Query\Runtime\Izayoi.Data.Query.csproj", "{47C0A5DD-9008-4976-8B37-9CCBF732C2AB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Izayoi.Data.Query.Test", "..\Izayoi.Data.Query.Test\Izayoi.Data.Query.Test.csproj", "{9C274E82-32E3-48FA-8910-E4D99B8CAB2F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Izayoi.Data.Repository", "..\Izayoi.Data.Repository\Izayoi.Data.Repository.csproj", "{73C373E1-7303-4FA6-816C-4DBC1FF2984E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Izayoi.Data.Repository", "..\Izayoi.Data.Repository\Runtime\Izayoi.Data.Repository.csproj", "{73C373E1-7303-4FA6-816C-4DBC1FF2984E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Izayoi.Data.Test", "..\Izayoi.Data.Test\Izayoi.Data.Test.csproj", "{B691D20B-31BB-404D-A016-41A07D4CE3EB}"
 EndProject

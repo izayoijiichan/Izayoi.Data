@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1;net8.0;net9.0;net10.0</TargetFrameworks>
+    <ImplicitUsings>false</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Izayoi.Data</RootNamespace>
+    <AssemblyVersion>1.3.0.0</AssemblyVersion>
+    <Authors>Izayoi</Authors>
+    <Description>This is a database operation support library that includes a fast micro O/R mapper (ORM).</Description>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>database;dbcommand;sql;orm;</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/izayoijiichan/Izayoi.Data</RepositoryUrl>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Title>Izayoi.Data.DbCommandAdapter</Title>
+    <Version>1.3.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="**\*.meta" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Izayoi.Data.DbDataMapper\Runtime\Izayoi.Data.DbDataMapper.csproj" />
+    <ProjectReference Include="..\..\Izayoi.Data.Query\Runtime\Izayoi.Data.Query.csproj" />
+  </ItemGroup>
+
+</Project>
